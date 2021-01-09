@@ -1,0 +1,16 @@
+{
+  "name": "eslint-example",
+  "version": "1.0.0",
+  "description": "Eslint Example",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint **/*.js",
+    "test": "eslint **/*.js --quiet"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^7.17.0",
+    "express": "^4.17.1"
+  }
+}
