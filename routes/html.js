@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-// route for login page - need to take express-session cookie id
+// route for login page - need to take express-session id
 router.get('/login', (req, res) => {
   res.render('login');
 });
