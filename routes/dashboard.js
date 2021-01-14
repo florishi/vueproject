@@ -8,7 +8,9 @@ router.get('/', (req, res) => {
 
 // route to recieve user's form submission for new logs
 router.post('/add', (req, res) => {
-  res.send('route for recieving POST request');
+  const { name } = req.body;
+  console.log(name);
+  res.send(`route for recieving POST request ${name}`);
 });
 
 // route to send user affirmation and gif after form submission

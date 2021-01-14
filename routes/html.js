@@ -3,7 +3,8 @@ const router = express.Router();
 
 // route for home page
 router.get('/', (req, res) => {
-  res.send('homepage: hello team!');
+  //res.send('homepage: hello team!');
+  res.render('index');
 });
 
 // route for login page - need to look into Google Auth
