@@ -3,18 +3,22 @@ const router = express.Router();
 
 // route for home page
 router.get('/', (req, res) => {
-  //res.send('homepage: hello team!');
   res.render('index');
 });
 
-// route for login page - need to look into Google Auth
+// route for login page - need to take express-session cookie id
 router.get('/login', (req, res) => {
-  res.send('login page');
+  res.render('login');
 });
 
-// route for page not found - need to set 404 header
+// route for clearing session and redirecting to homepage
+router.get('/logout', (req, res) => {
+  res.redirect('/');
+});
+
+// route for page not found
 router.get('*', (req, res) => {
-  res.send('page not found 404');
+  res.send('sorry, page not found').status(404);
 });
 
 module.exports = router;
