@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { nanoid } = require('nanoid');
+const {select,createUsers,createStress,createHealth} = require('../config/orm');
 
 // route for home page
 router.get('/', (req, res) => {
@@ -20,6 +21,7 @@ router.post('/login', (req, res) => {
   console.log(`name: ${name}`);
   const id = nanoid();
   //-------------CREATE SEQUELIZE QUERY HERE TO SAVE TO DB------------//
+  createUsers(email,name)
   return res.send({redirect: `/dashboard/?=${id}`});
 });
 
