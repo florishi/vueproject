@@ -5,7 +5,8 @@ USE sanaya;
 
 create table Users(
 	id integer not null unique auto_increment,
-    Email varchar(50)
+    Email varchar(50),
+    userName varchar(50)
 );
 
 create table Stress(
