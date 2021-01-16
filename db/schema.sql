@@ -9,7 +9,7 @@ create table Users(
     userName varchar(50)
 );
 
-create table Stress(
+create table Stresses(
 	id integer not null unique auto_increment,
     usersID integer,
     moods varchar(10),

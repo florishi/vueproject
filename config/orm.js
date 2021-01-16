@@ -1,8 +1,10 @@
 const {connection,DataTypes} = require('./db')
 
-const Users = connection.define('Users', {
+
+const Users = connection.define('User', {
     id      :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-    Email   :{type: DataTypes.STRING(50) },
+    Email   :{type: DataTypes.STRING(50)},
+    userName:{type: DataTypes.STRING(50)}
   },  {
     timestamps : false,
   } );
@@ -20,7 +22,7 @@ const Stress = connection.define('Stress', {
     timestamps : false,
   } );
 
-  const Health = connection.define('Stress', {
+  const Health = connection.define('health', {
     id           :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
     usersID      :{type: DataTypes.INTEGER },
     weight       :{type: DataTypes.STRING(10)},
@@ -34,71 +36,19 @@ const Stress = connection.define('Stress', {
     timestamps : false,
   } );
 
-  connection.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
-    
-  }).then(() => {
-    return Users.findAll()
-  }).catch((e) =>{
-    console.log(e);
-  });
-
-/* const selectAll = () => {
-  return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM burgers;`, (error, data) => {
-      if (error) {
-        console.log("Error while reading from DB:", error);
-        reject(error);
-      } else {
-        resolve(data);
-      }
-    })
-  })
-};
-
-
-const insert = (toInsert) => {
-  return new Promise((resolve, reject) => {
-    connection.query(`INSERT INTO burgers (burger_name, devoured) VALUES ("${toInsert.burger_name}", ${toInsert.devoured});`, (error, data) => {
-      if (error) {
-        console.log("Error while saving to DB:", error);
-        reject(error);
-      } else {
-        resolve(data);
-      }
-    })
-  })
-};
-
-const update = (data) => {
-  return new Promise((resolve, reject) => {
-    connection.query(`UPDATE burgers SET devoured = 1 WHERE id = ${data};`, (error, data) => {
-      if (error) {
-        console.log("Error while updating DB:", error);
-        reject(error)
-      } else {
-        resolve(data)
-      }
-    })
-  })
-};
-
-const deleted = (data) => {
-  return new Promise((resolve, reject) => {
-    connection.query(`DELETE FROM burgers WHERE id = ${data};`, (error, data) => {
-      if (error) {
-        console.log("Error while updating DB:", error);
-        reject(error)
-      } else {
-        resolve(data)
-      }
-    })
-  })
-};
+/* Users.destroy({where : {id :2}}).then(()=>{
+  return Users.findAll()
+}).then((data) =>{
+  console.log(data)
+}) */
+/* Users.create({Email:'renato@gmail.com',userName:"renato"})
+.then(() =>{
+  return Users.findAll()
+})
+.then((data)=>{console.log(data)}) */
 
 module.exports = {
-  selectAll,
-  insert,
-  update,
-  deleted
-} */
+  Users,
+  Stress,
+  Health
+}  
