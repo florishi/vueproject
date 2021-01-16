@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
-
+const {Users,select,createUsers,createStress,createHealth} = require('../config/orm');
+console.log(createUsers);
 // route to load dashboard form page
 router.get('/:userId', (req, res) => {
   res.render('dashboard');
@@ -14,6 +15,9 @@ router.post('/:userId', async (req, res) => {
     const { mood, water, steps, sleep, exercise } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise}`);
     // CREATE SEQUELIZE QUERY HERE TO SAVE TO DB
+    select(Users,1);
+    createStress(mood,sleep,exercise);
+    createHealth(water,steps);
     return res.send({redirect: `/dashboard/${userId}/message`});
   } catch(error) {
     console.log(error);
