@@ -9,10 +9,11 @@ $('#submitBtn').on('click', function(event){
     'sleep': $('#sleep').val(),
     'exercise': $('#exercise').val(),
   };
+  const userId = localStorage.getItem( 'userId');
   console.log(`data values ${data}`);
   $.ajax({
     type: 'POST',
-    url: '/dashboard',
+    url: `/dashboard/${userId}`,
     data: JSON.stringify(data),
     contentType: 'application/json',
     success: function(response) {
@@ -43,37 +44,11 @@ $('#loginBtn').on('click', function(event) {
     contentType: 'application/json',
     success: function(response) {
       console.log(`sent ${response}`);
-      if (response.redirect) {
-        window.location = response.redirect;
-      }
+      localStorage.setItem('userId', response.userId);
+      window.location = `/dashboard/${response.userId}`;
     },
     error: function(err) {
       console.log(`Error ${err}`);
     }
   });
 });
-
-/*
-$.ajax({
-      url: '/login',
-      type: 'POST',
-      data: JSON.stringify(data),
-      dataType: 'json',
-      contentType: 'application/json',
-    })
-    .then( response => console.log(`response, ${response}`))
-    .catch( err => console.log(`error posting form, ${err}`));
-
-$.ajax({
-      url: '/dashboard',
-      type: 'post',
-      data: JSON.stringify(data),
-      dataType: 'json',
-      contentType: 'application/json',
-    })
-    .then( response => console.log(`response, ${response}`))
-    .catch( err => console.log(`error posting form, ${err}`));
-
-
-
-*/
