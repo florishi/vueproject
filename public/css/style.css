@@ -41,3 +41,57 @@
 .add{
     margin-top: -500px;
 }
+
+.message{
+    margin-top: -500px;
+}
+
+.history{
+    margin-top: -700px;
+}
+
+.questions{
+    margin-top: -600px;
+}
+.tables{
+    margin-top: 160px;
+}
+.moodT{
+    margin:75px;
+}
+
+.item{
+    padding-left:5px;
+    padding-right:5px;
+    width: 300px;
+    margin: 10px;
+  }
+  .item-card{
+    transition:0.5s;
+    cursor:pointer;
+  }
+  .item-card-title{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+  }
+  .item-card-title i{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+  }
+
+    
+  
+  .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  }
+  .card-text{
+    height:80px;  
+  }
+  
+  .des-text{
+    font-size: 13px;
+    opacity: 0.5;
+}
