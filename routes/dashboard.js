@@ -1,8 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
-
+const {Users,Stress,Health} = require('../config/orm');
 // route to load dashboard form page
+Users.findAll().then((data) => {
+  console.log(data);
+});
+
+Stress.findAll().then((data) => {
+  console.log(data);
+});
+Health.findAll().then((data) => {
+  console.log(data);
+});
+
 router.get('/', (req, res) => {
   res.render('dashboard');
 });
