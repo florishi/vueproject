@@ -1,0 +1,43 @@
+.bgImg{
+    background-image: url(../img/bbg-01.jpg);
+    background-size: cover;
+    height: 100vh;
+   
+}
+
+.title{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    margin-top: -500px;
+    font-size: 40px;
+}
+
+.subtitle{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.logo{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+}
+
+.nav-item{
+    margin: 0 20px;
+}
+
+.about{
+    margin-top: 450px;
+}
+
+.plant-img{
+    height: 700px;
+}
+
+.login{
+    margin-top: -500px;
+}
+.add{
+    margin-top: -500px;
+}
