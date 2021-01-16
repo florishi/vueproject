@@ -1,7 +1,246 @@
-<div>
-  <h1>history handlebars loaded</h1>
-    <p>mood is {{testData.mood}}</p>
-    <p>water intake {{testData.water}}L</p>
-    <p>date: {{testData.timestamp}}</p>
-    <a href="logout">Logout</a>
+
+<div class="history">
+  <section class="services-class r-p" id="services-id">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col mb-5 way-fade-right">
+          <div class="col">
+            <h2>History Logs</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-2">
+        <div class="row way-fade-left">
+          <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="card-title text-right"></h4>
+              <a href="#moodHistory"><img class="card-img-top cOne-img"
+                  src="/img/mood-01.png" alt=""></a>
+              <h5 class="item-card-title mt-3 mb-3">Mood</h5>
+              <div class="service-border"></div>
+              
+              
+            </div>
+          </div>
+           <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="card-title text-right"></h4>
+              <a href="#exerciseHistory"><img class="card-img-top cOne-img"
+                  src="/img/exercise-01.png" alt=""></a>
+              <h5 class="item-card-title mt-3 mb-3">Exercise</h5>
+              <div class="service-border"></div>
+             
+              
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#sleepHistory"><img class="card-img-top c-img"
+                  src="/img/sleep-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Sleep</h5>
+              <div class="service-border"></div>
+         
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#stepsHistory"><img class="card-img-top c-img"
+                  src="/img/steps-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Steps</h5>
+              <div class="service-border"></div>
+            
+             
+            </div>
+          </div>
+           <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#calorieHistory"><img class="card-img-top c-img"
+                  src="/img/calorie-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Calories</h5>
+              <div class="service-border"></div>
+             
+            </div>
+          </div>
+           <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#alcoholHistory"><img class="card-img-top c-img"
+                  src="/img/alcohol-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Alcohol</h5>
+              <div class="service-border"></div>
+       
+            </div>
+          </div>
+           <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#coffeeHistory"><img class="card-img-top c-img"
+                  src="/img/coffee-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Coffee</h5>
+              <div class="service-border"></div>
+              
+            </div>
+          </div>
+           <div class="col-md-4 col-sm-6 item">
+            <div class="card item-card card-block">
+              <h4 class="item-card-title text-right"></h4>
+              <a href="#waterHistory"><img class="card-img-top c-img"
+                  src="/img/water-01.png" alt=""></a>
+              <h5 class="card-title  mt-3 mb-3">Water</h5>
+              <div class="service-border"></div>    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  </div>
+
+  <section class="tables">
+    <div class="container mt-5">
+      <h2 class="text-center moodT" id="moodHistory">Mood</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Mood</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>Happy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="container">
+      <h2 class="text-center" id="exerciseHistory">Exercise</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Exercise (min)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>34</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="container">
+      <h2 class="text-center" id="sleepHistory">Sleep</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Sleep (hours)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container">
+      <h2 class="text-center" id="stepsHistory">Steps</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>10000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container">
+      <h2 class="text-center" id="calorieHistory">Calorie</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Calorie Intake (kcal)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>1300</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container">
+      <h2 class="text-center" id="alcoholHistory">Alcohol</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Alcohol Intake (units)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container">
+      <h2 class="text-center" id="coffeeHistory">Coffee</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Coffee Intake (cups)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="container">
+      <h2 class="text-center" id="waterHistory">Water</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your Water Intake (Litres)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16.01.2021</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  </section>
+   <div class="justify-content-md-center d-grid gap-2 d-md-flex">
+   <a class="btn btn-secondary" href="logout" role="button"> Logout</a></div>
+  
 </div>
