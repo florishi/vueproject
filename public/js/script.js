@@ -31,10 +31,12 @@ $('#submitBtn').on('click', function(event){
 // POST LOGIN FORM DATA TO /dashboard route
 $('#loginBtn').on('click', function(event) {
   event.preventDefault();
+  const userId = localStorage.getItem( 'userId');
   console.log('login button clicked');
   const data = {
     'email': $('#email').val(),
     'name': $('#name').val(),
+    userId
   };
   console.log('data values', data);
   $.ajax({
