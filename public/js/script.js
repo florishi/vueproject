@@ -9,6 +9,9 @@ $('#submitBtn').on('click', function(event){
     'steps': $('#steps').val(),
     'sleep': $('#sleep').val(),
     'exercise': $('#exercise').val(),
+    'calorie': $('#calorie').val(),
+    'alcohol': $('#alcohol').val(),
+    'coffee': $('#coffee').val(),
   };
   const userId = localStorage.getItem( 'userId');
   console.log(`data values ${data}`);
