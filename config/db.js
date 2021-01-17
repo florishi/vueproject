@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const {Sequelize,DataTypes} = require('sequelize');
 require('dotenv').config();
 
 const connection = new Sequelize(
@@ -9,8 +9,8 @@ const connection = new Sequelize(
     dialect: 'mysql'
   });
 
-connection.authenticate().then(() => {
+connection.authenticate().then(()=>{
   console.log('Connection has been established successfully.');
-}).catch((e) =>{
-  console.log(e);
 });
+
+module.exports = {connection,DataTypes};
