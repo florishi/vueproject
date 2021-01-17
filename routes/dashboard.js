@@ -56,7 +56,7 @@ router.get('/:userId/history', async (req, res) => {
 });
 
 // route for clearing session and redirecting to homepage
-router.get('/logout', (req, res) => {
+router.get('/:userId/logout', (req, res) => {
   res.redirect('/');
 });
 
