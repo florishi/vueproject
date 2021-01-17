@@ -1,4 +1,5 @@
 // POST LOGIN FORM DATA TO /dashboard route
+
 $('#submitBtn').on('click', function(event){
   event.preventDefault();
   console.log('dashboard form sumbit clicked');
