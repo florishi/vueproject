@@ -15,8 +15,8 @@ router.post('/:userId', async (req, res) => {
     const { mood, water, steps, sleep, exercise } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise}`);
     // CREATE SEQUELIZE QUERY HERE TO SAVE TO DB
-    userQuery.createStress(userID,mood,sleep,exercise);
-    userQuery.createHealth(userID,water,steps);
+    userQuery.createStress(userId,mood,sleep,exercise);
+    userQuery.createHealth(userId,water,steps);
     return res.send({redirect: `/dashboard/${userId}/message`});
   } catch(error) {
     console.log(error);
@@ -45,7 +45,7 @@ router.get('/:userId/history', async (req, res) => {
   //const userId = req.params.userId;
   try {
   // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB AND THEN PASS TO RENDER ENGINE
-    const getDataUser = await user.userQuery.select(User,userId);
+    const getDataUser = await user.userQuery.select(Users,userId);
     const getDataStress = await userQuery.select(Stress,userId);
     const getDataHealth = await userQuery.select(Health,userId);
     console.log('data got',getDataUser,getDataStress,getDataHealth);

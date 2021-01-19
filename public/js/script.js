@@ -20,8 +20,9 @@ const loginValidation = () => {
 
 // POST LOGIN FORM DATA TO /login route
 $('#loginBtn').on('click', (event) => {
-  if (loginValidation() === false) {
     event.preventDefault();
+  if (loginValidation() === false) {
+    console.log("wrong")
   } else {
     const userId = localStorage.getItem('userId');
     const data = {
