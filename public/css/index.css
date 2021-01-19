@@ -3,3 +3,12 @@
     background-size: cover;
     height: 100vh;
 }
+
+.hide {
+    display: none;
+    color: red;
+}
+
+.show {
+    display: block;
+}
