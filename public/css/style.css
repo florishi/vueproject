@@ -212,3 +212,12 @@
 .affitmation{
     font-family: 'Pinyon Script', cursive;
 }
+
+.hide {
+    display: none;
+    color: red;
+}
+
+.show {
+    display: block;
+}
