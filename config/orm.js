@@ -33,28 +33,10 @@ const Health = connection.define('health', {
   timestamps : false,
 });
 
-const select = (table,user) =>{
-  table.findAll({where:{id:user}}).then((data) => {
-    console.log(data);
-  });
-};
 
-const createUsers =(email,name) => {
-  Users.create({Email:email,userName:name});
-};
-
-const createStress = (id,mood,hoursSleept,minEx,coffee,date) => {
-  Stress.create({usersID:id,moods:mood,hoursSleep:hoursSleept,minsExercise:minEx,coffeeUnits:coffee,inputDate:date});
-};
-
-const createHealth = (id,weightIn,water,alchool,stepsIn,caloriesIn,date) =>{
-  Health.create({usersID:id,weight:weightIn,waterUnits:water,alchoolUnits:alchool,steps:stepsIn,calories:caloriesIn,inputDate:date});
-};
 
 module.exports = {
   Users,
-  select,
-  createUsers,
-  createStress,
-  createHealth
+  Stress,
+  Health
 };
