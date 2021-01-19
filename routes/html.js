@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { nanoid } = require('nanoid');
-const {select,createUsers,...rest} = require('../config/orm');
+const userQuery = require('../models/user');
 
-console.log(select,rest);
 // route for home page
 router.get('/', (req, res) => {
   res.render('index');
@@ -17,12 +16,15 @@ router.get('/login', (req, res) => {
 // route for login page to accept user login form values
 router.post('/login', async (req, res) => {
   try {
-    const { name, email } = req.body;
+    let { name, email, userId } = req.body;
     console.log(`email is: ${email}`);
     console.log(`name: ${name}`);
-    const userId = nanoid();
+    console.log(`local storage id:${userId}`);
+    if (!userId) {
+      userId = nanoid();
+    }
     // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
-    createUsers(email,name);
+    userQuery.createUsers(email,name);
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);

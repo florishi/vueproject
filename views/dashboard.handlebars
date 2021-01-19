@@ -1,20 +1,33 @@
-<div>
+<!--<div>
   
    {{name}}
 </div>
-
-<form class="questions">
+<div class="container uu">
+  <div class="row">
+<form class="formQ questions">
 
 <label for="mood">Mood</label>
-<div class="input-group mb-3">
-  <select class="form-select" id="inputGroupSelect02">
-    <option id="mood" selected>Choose...</option>
+<div id="mood" class="input-group mb-3">
+  <select class="form-select" id="mood" id="inputGroupSelect02">
+    <option  selected>Choose...</option>
     <option value="1">Happy</option>
     <option value="2">Sad</option>
     <option value="3">Anxious</option>
     <option value="3">Joyful</option>
     <option value="3">Relaxed</option>
   </select>
+
+  <div class="input-group mb-3">
+  <input type="text" id="mood" class="form-control" aria-label="Text input with dropdown button">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Happy</a></li>
+    <li><a class="dropdown-item" href="#">Sad</a></li>
+    <li><a class="dropdown-item" href="#">Anxious</a></li>
+    <li><a class="dropdown-item" href="#">Joyful</a></li>
+    <li><a class="dropdown-item" href="#">Relaxed</a></li>
+  </ul>
+</div>
 
   <label class="input-group-text" for="inputGroupSelect02">Options</label>
 </div>
@@ -34,8 +47,69 @@
     <label for="exercise">excercise</label>
     <input type="number" class="form-control" id="exercise" placeholder="excercise">
   </div>
-  <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+  <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
 </form>
-<a href="/dashboard/message">Next</a>
+</div>
+</div>-->
+
+<div class="container login">
+    <div class="row px-3">
+      <div class="col-lg-10 col-xl-9 cardG flex-row mx-auto px-0">
+        <div class="im-left d-none d-md-flex"></div>
+         <div class="card-body">
+           <h4 class="dashboardTitle text-center mt-4">Your Daily Log</h4>
+           <form class="form-box px-3">
+              <div class="input-group mb-3">
+                <label for="mood">What is your mood today?</label>
+  <input type="text"  class="form-control" aria-label="Text input with dropdown button">
+  <button id="mood" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Happy</a></li>
+    <li><a class="dropdown-item" href="#">Sad</a></li>
+    <li><a class="dropdown-item" href="#">Anxious</a></li>
+    <li><a class="dropdown-item" href="#">Joyful</a></li>
+    <li><a class="dropdown-item" href="#">Relaxed</a></li>
+  </ul>
+</div>
+              <div class="form-input">
+            <div class="form-group">
+    <label class="form-label text-center" for="water">How many liters of water did you drink today?</label><br>
+    <input type="number" class="form-control" id="water" placeholder="Water (liters)">
+  </div>
+            <div class="form-group">
+    <label class="form-label text-center" for="coffee">How many cups of coffee do you drink daily?</label><br>
+    <input type="number" class="form-control" id="coffee" placeholder="Coffee (cups)">
+  </div>
+
+      <div class="form-group">
+    <label class="form-label text-center" for="calorie">What is you daily calorie intake?</label><br>
+    <input type="number" class="form-control" id="calorie" placeholder="calories (kcal)">
+  </div>
+      <div class="form-group">
+    <label class="form-label text-center" for="alcohol">What is you daily Alcohol intake?</label><br>
+    <input type="number" class="form-control" id="alcohol" placeholder="Alcohol (units)">
+  </div>
+             <div class="form-group">
+    <label for="steps">Log in your daily steps</label>
+    <input type="number" class="form-control" id="steps" placeholder="steps">
+  </div>
+  <div class="form-group">
+    <label for="sleep">How many hours did you sleep last night?</label>
+    <input type="number" class="form-control" id="sleep" placeholder="sleep (hours)">
+  </div>
+  <div class="form-group">
+    <label for="exercise">How many minutes did you excercise today?</label>
+    <input type="number" class="form-control" id="exercise" placeholder="excercise (minutes)">
+  </div>
+             <div class="mb-3">
+                <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
+             <!--  <button type="submit" id="submitBtn" class="btn btn-block text-uppercase">Submit</button>-->
+             </div>
+           </form>
+         </div>
+      </div>
+    </div>
+
+  </div>
 
 <!--keep ids for lable, sumit button and anchor-->
