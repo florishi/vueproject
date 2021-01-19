@@ -42,15 +42,16 @@ router.get('/:userId/message/', async (req, res) => {
 
 // route to send user history logs
 router.get('/:userId/history', async (req, res) => {
-  //const userId = req.params.userId;
+  const userId = req.params.userId;
   try {
   // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB AND THEN PASS TO RENDER ENGINE
-    const getDataUser = await user.userQuery.select(Users,userId);
-    const getDataStress = await userQuery.select(Stress,userId);
-    const getDataHealth = await userQuery.select(Health,userId);
-    console.log('data got',getDataUser,getDataStress,getDataHealth);
-    const getData = { 'mood': 'relaxed'};
-    res.render('history', { getData });
+
+    //const getDataUser = await userQuery.select(Users,userId);
+    //const getDataStress = await userQuery.select(Stress,userId);
+    const getDataHealth = await userQuery.select('Health', userId);
+    console.log('data got', getDataHealth);
+    //const getData = { 'mood': 'relaxed'};
+    res.render('history', { getDataUser, });
   } catch(error) {
     console.log(error);
     res.render('history');
