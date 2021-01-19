@@ -275,3 +275,9 @@
 .show {
     display: block;
 }
+
+.loginBackground{
+    background-image: url(../img/AboutBG-01.png);
+    background-size: cover;
+    height: 100vh;
+}

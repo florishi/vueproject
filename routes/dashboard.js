@@ -5,7 +5,7 @@ const userQuery = require('../models/user');
 
 // route to load dashboard form page
 router.get('/:userId', (req, res) => {
-  res.render('dashboard');
+  res.render('dashboard', {layout:'form'});
 });
 
 // route to recieve user's dashboard submission, save to db and redirect to message page
