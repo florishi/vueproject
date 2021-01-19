@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // route for login page
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login',  {layout:'form'});
 });
 
 // route for login page to accept user login form values

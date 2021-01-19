@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
+const session = require('express-session');
 const {Users,select,createUsers,createStress,createHealth} = require('../config/orm');
 console.log(createUsers);
 // route to load dashboard form page
 router.get('/:userId', (req, res) => {
-  res.render('dashboard');
+  res.render('dashboard', {layout:'form'});
 });
 
 // route to recieve user's dashboard submission, save to db and redirect to message page
