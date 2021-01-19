@@ -6,17 +6,6 @@ const select = (table,user) =>{
     console.log(data);
     return data;
   });
-  /*if(table === 'Users'){
-
-  if(table === 'Users'){
-
-    orm.table.findAll({where:{id:user}}).then((data) => {
-      console.log(data);
-    });
-  }else{
-    orm.table.findAll({where:{usersID:user}}).then((data) => {
-      console.log(data);
-    });
 };
 
 
