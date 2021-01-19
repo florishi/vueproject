@@ -33,8 +33,6 @@ const Health = connection.define('health', {
   timestamps : false,
 });
 
-
-
 module.exports = {
   Users,
   Stress,
