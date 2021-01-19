@@ -4,6 +4,11 @@
     height: 100vh;
    
 }
+.bg{
+    background-image: url(../img/mainPageBg-01.png);
+    background-size: cover;
+    height: 100vh;
+}
 
 .title{
     font-family: 'Oswald', sans-serif;
@@ -11,7 +16,39 @@
     margin-top: -500px;
     font-size: 40px;
 }
+.pebbleIMG{
+    width: 900px;
+    margin-left: -200px;
+    margin-top: -80px;
+    
+}
+.headerMain{
+    margin-top:20px;
+}
+.mainTitle{
+    margin-top: 50px;
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+}
 
+.dot{
+    height: 20px;
+    width: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dotlogo{
+    height: 10px;
+    width: 10px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.subhead{
+    font-size: 40px;
+    font-family: 'Bodoni Moda', serif;
+}
 .subtitle{
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
@@ -19,9 +56,7 @@
 }
 
 .logo{
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    width:500px;
+    font-family: 'Abril Fatface', cursive;
 }
 
 .nav-item{
@@ -36,6 +71,25 @@
     height: 700px;
 }
 
+.aboutBG{
+    background-image: url(../img/aboutbg-01.png);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.aboutTitile{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 60px;
+    
+}
+
+.aboutIMG{
+    width: 1600px;
+    
+    position: relative;
+    top: -140px;
+}
 .login{
     margin-top: -700px;
     justify-content: center;
