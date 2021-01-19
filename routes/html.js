@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
       userId = nanoid();
     }
     // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
-    userQuery.createUsers(email,name);
+    userQuery.createUsers(userId,email,name);
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);
