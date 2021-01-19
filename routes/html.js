@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { nanoid } = require('nanoid');
-const {select,createUsers,...rest} = require('../config/orm');
+const userQuery = require('../models/user');
 
-console.log(select,rest);
 // route for home page
 router.get('/', (req, res) => {
   res.render('index');
@@ -25,7 +24,7 @@ router.post('/login', async (req, res) => {
       userId = nanoid();
     }
     // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
-    createUsers(email,name);
+    userQuery.createUsers(email,name);
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);
