@@ -1,29 +1,28 @@
 const {connection,DataTypes} = require('./db');
 
 const Users = connection.define('User', {
-  id      :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-  Email   :{type: DataTypes.STRING(50)},
-  userName:{type: DataTypes.STRING(50)}
+  id       :{type: DataTypes.STRING(22), allowNull: false, primaryKey: true, autoIncrement: true },
+  Email    :{type: DataTypes.STRING(50)},
+  userName :{type: DataTypes.STRING(50)}
 },{
   timestamps : false,
 });
 
 const Stress = connection.define('Stress', {
   id           :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-  usersID      :{type: DataTypes.INTEGER },
+  usersID      :{type: DataTypes.STRING(22)},
   moods        :{type: DataTypes.STRING(10)},
-  hoursSleep  :{type:DataTypes.INTEGER },
-  minsExercise:{type:DataTypes.INTEGER},
-  coffeeUnits :{type:DataTypes.INTEGER},
-  inputDate   :{type:DataTypes.DATE}
+  hoursSleep   :{type:DataTypes.INTEGER },
+  minsExercise :{type:DataTypes.INTEGER},
+  coffeeUnits  :{type:DataTypes.INTEGER},
+  inputDate    :{type:DataTypes.DATE}
 },{
   timestamps : false,
 });
 
 const Health = connection.define('health', {
   id           :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-  usersID      :{type: DataTypes.INTEGER },
-  weight       :{type: DataTypes.STRING(10)},
+  usersID      :{type: DataTypes.STRING(22)},
   waterUnits   :{type:DataTypes.INTEGER },
   alchoolUnits :{type:DataTypes.INTEGER},
   steps        :{type:DataTypes.INTEGER},
@@ -32,8 +31,6 @@ const Health = connection.define('health', {
 },{
   timestamps : false,
 });
-
-
 
 module.exports = {
   Users,
