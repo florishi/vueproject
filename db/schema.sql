@@ -4,28 +4,27 @@ CREATE DATABASE sanaya;
 USE sanaya;
 
 create table Users(
-	id integer not null unique auto_increment,
+	id varchar(22) not null unique auto_increment,
     Email varchar(50),
     userName varchar(50)
 );
 
 create table Stresses(
 	id integer not null unique auto_increment,
-    usersID integer,
+    usersID varchar(22),
     moods varchar(10),
-    hoursSleep integer,
-    minsExercise integer,
-    coffeeUnits integer,
-    inputDate date    
+    hours_sleep integer,
+    mins_exercise integer,
+    coffee_units integer,
+    input_date date    
 );
 
 create table health(
 	id integer not null unique auto_increment,
-    usersID integer,
-    weight integer,
-    waterUnits integer,
-    alchoolUnits integer,
+    usersID varchar(22),
+	water_units integer,
+    alchool_units integer,
     steps integer,
     calories integer,
-    inputDate date
+    input_date date
 );
