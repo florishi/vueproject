@@ -1,11 +1,15 @@
 const orm = require('../config/orm');
 
 const select = (table,user) =>{
+
   orm[table].findAll({where:{usersID:user}, raw: true}).then((data) => {
     console.log(data);
     return data;
   });
   /*if(table === 'Users'){
+
+  if(table === 'Users'){
+
     orm.table.findAll({where:{id:user}}).then((data) => {
       console.log(data);
     });
@@ -13,7 +17,6 @@ const select = (table,user) =>{
     orm.table.findAll({where:{usersID:user}}).then((data) => {
       console.log(data);
     });
-  }*/
 };
 
 

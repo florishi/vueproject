@@ -45,6 +45,7 @@ router.get('/:userId/history', async (req, res) => {
   const userId = req.params.userId;
   try {
   // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB AND THEN PASS TO RENDER ENGINE
+
     //const getDataUser = await userQuery.select(Users,userId);
     //const getDataStress = await userQuery.select(Stress,userId);
     const getDataHealth = await userQuery.select('Health', userId);
