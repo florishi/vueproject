@@ -64,6 +64,3 @@ router.get('/:userId/logout', (req, res) => {
 });
 
 module.exports = router;
-
-
-
