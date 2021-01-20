@@ -8,9 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">16.01.2021</th>
-      <td>Happy</td>
-    </tr>
-  </tbody>
+          {{#each getData }}
+        <tr>
+          <td>{{date}}16.01.2021</td>
+          <td>{{mood}}Happy</td>
+        </tr>
+          {{/each}}
+      </tbody>
 </table>
+
+      
