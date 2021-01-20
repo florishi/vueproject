@@ -1,0 +1,105 @@
+.cardF{
+    width: 800px;
+    height: 700px;
+    background:white;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.loginBackground{
+    background-image: url(../img/AboutBG-01.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.hide {
+    display: none;
+    color: red;
+}
+
+.card-body{
+    padding: 7rem;
+    margin-top: 30px;
+}
+
+.form-input{
+    position: relative;
+}
+
+.form-input input{
+    width: 100%;
+    height: 45px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid #00000020;
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+}
+
+.form-input span{
+    position: absolute;
+    top: 20px;
+    padding-left: 15px;
+    color: orange;
+}
+
+.form-input input:focus, .form-input input:valid{
+    border: 2px solid orange;
+}
+
+.form-box  button[type="submit"]{
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    background: orange;
+    color: #000;
+    font-size: 90%;
+    font-weight: bold;
+    width: 100%;
+    letter-spacing: .1rem;
+    transition: 0.5s;
+    padding: 12px;
+}
+
+.formQ{
+    width: 600px;
+    padding: 4rem;
+    margin-left: 90px;
+}
+
+.dot{
+    height: 20px;
+    width: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dotlogo{
+    height: 10px;
+    width: 10px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.logo{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.fas{
+    margin-top: 20px;
+}
+
+.loginTitle{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 55px;
+}
+
+.loginsubtitle{
+    font-family: 'Bodoni Moda', serif;
+    opacity: 0.4;
+}
