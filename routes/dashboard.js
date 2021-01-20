@@ -61,10 +61,12 @@ router.get('/:userId/history', async (req, res) => {
 
 // route to send user mood logs
 router.get('/:userId/mood', async (req, res) => {
-  //const userId = req.params.userId;
+  const userId = req.params.userId;
+  console.log(userId)
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL MOOD LOGS FOR THIS USER
-    const getData = { 'mood': 'relaxed'};
+    const getData = await userQuery.select('Stress',userId);
+    console.log("getData",getData)
     res.render('mood', { getData });
   } catch(error) {
     console.log(error);

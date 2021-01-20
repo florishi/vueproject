@@ -52,7 +52,7 @@ $('#loginBtn').on('click', (event) => {
 $('#submitBtn').on('click', (event) => {
   event.preventDefault();
   const data = {
-    mood: $('#mood:selected').text(),
+    mood: $('#mood option:selected').text(),
     water: $('#water').val(),
     steps: $('#steps').val(),
     sleep: $('#sleep').val(),
