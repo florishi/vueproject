@@ -1,10 +1,12 @@
-<div class="message">
-
-   <h3 class="messageTitle text-center">Hi {{payload.affirmation}} </h3><br>
-        <p>you can view your previous logs here </p>
+<div class="container">
+    <div class="message">
+        <div>
+            <h1>HI {{ getDataUser.userName}}</h1>
+        </div>
     <div class="justify-content-md-center d-grid gap-2 d-md-flex">
-        <!--place button at the bottom-->
-    <a href="history"> <button type="submit" class="historybtn btn btn-block text-uppercase">View My Logs</button></a></div><br>
-    <h1 class="affitmation text-center">Today's affirmation is: {{payload.affirmation}}</h1>
-
+        <h2 class="affitmation text-center">Here is your daily affirmation: {{payload.affirmation}}</h2>
+    </div>
+    <div>
+        <a class="historybtn btn btn-block text-uppercase" href="history" role="button"> View My History Logs</a>
+    </div>
 </div>
