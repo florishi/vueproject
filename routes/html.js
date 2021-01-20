@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { nanoid } = require('nanoid');
 const userQuery = require('../models/user');
+const orm = require('../config/orm');
 
 // route for home page
 router.get('/', (req, res) => {
@@ -17,6 +18,8 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     let { name, email, userId } = req.body;
+    const user = await orm.Users.findOne({where:{Email:email}, raw :true}).then((data) => data)
+    console.log(user)
     console.log(`email is: ${email}`);
     console.log(`name: ${name}`);
     console.log(`local storage id:${userId}`);
@@ -24,7 +27,15 @@ router.post('/login', async (req, res) => {
       userId = nanoid();
     }
     // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
-    userQuery.createUsers(userId,email,name);
+    if(user === null){
+      console.log("here")
+      userQuery.createUsers(userId,email,name);
+    }
+   /*  if(user.sessionId != userId){
+      console.log("here")
+      user.sessionId = userId
+      await user.save()
+    } */
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);

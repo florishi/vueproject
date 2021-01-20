@@ -4,7 +4,8 @@ CREATE DATABASE sanaya;
 USE sanaya;
 
 create table Users(
-	id varchar(22)  not null unique primary key,
+    id integer not null unique auto_increment,
+	sessionId varchar(22)  not null unique,
     Email varchar(50),
     userName varchar(50)
 );

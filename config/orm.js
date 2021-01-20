@@ -1,7 +1,8 @@
 const {connection,DataTypes} = require('./db');
 
 const Users = connection.define('User', {
-  id       :{type: DataTypes.STRING(22), allowNull: false, primaryKey: true, autoIncrement: true },
+  id       :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
+  sessionId:{type: DataTypes.STRING(22), allowNull: false },
   Email    :{type: DataTypes.STRING(50)},
   userName :{type: DataTypes.STRING(50)}
 },{
@@ -10,7 +11,7 @@ const Users = connection.define('User', {
 
 const Stress = connection.define('Stress', {
   id           :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-  usersID      :{type: DataTypes.STRING(22)},
+  usersId      :{type: DataTypes.INTEGER},
   moods        :{type: DataTypes.STRING(10)},
   hoursSleep   :{type:DataTypes.INTEGER },
   minsExercise :{type:DataTypes.INTEGER},
@@ -22,7 +23,7 @@ const Stress = connection.define('Stress', {
 
 const Health = connection.define('health', {
   id           :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
-  usersID      :{type: DataTypes.STRING(22)},
+  usersId      :{type: DataTypes.INTEGER},
   waterUnits   :{type:DataTypes.INTEGER },
   alchoolUnits :{type:DataTypes.INTEGER},
   steps        :{type:DataTypes.INTEGER},

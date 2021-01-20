@@ -39,6 +39,7 @@ $('#loginBtn').on('click', (event) => {
       success: function (response) {
         console.log(`sent ${response}`);
         localStorage.setItem('userId', response.userId);
+        localStorage.setItem('email', data.email);
         window.location = `/dashboard/${response.userId}`;
       },
       error: function (err) {
@@ -60,6 +61,7 @@ $('#submitBtn').on('click', (event) => {
     calorie: $('#calorie').val(),
     alcohol: $('#alcohol').val(),
     coffee: $('#coffee').val(),
+    email : localStorage.getItem('email')
   };
   const userId = localStorage.getItem('userId');
   console.log(`data values ${data}`);
