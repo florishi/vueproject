@@ -27,5 +27,5 @@ create table health(
     alchoolUnits integer,
     steps integer,
     calories integer,
-    input_date date
+    inputDate date
 );
