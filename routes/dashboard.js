@@ -52,7 +52,7 @@ router.get('/:userId/history', async (req, res) => {
     const getDataHealth = await userQuery.select('Health', userId);
     console.log('data got', getDataHealth);
     const getData = { 'mood': 'relaxed'};
-    res.render('history', { getData });
+    res.render('history', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render('history');
@@ -65,7 +65,7 @@ router.get('/:userId/mood', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL MOOD LOGS FOR THIS USER
     const getData = { 'mood': 'relaxed'};
-    res.render('mood', { getData });
+    res.render('mood', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -73,12 +73,12 @@ router.get('/:userId/mood', async (req, res) => {
 });
 
 // route to send user excercise logs
-router.get('/:userId/excercise', async (req, res) => {
+router.get('/:userId/exercise', async (req, res) => {
   //const userId = req.params.userId;
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL EXERCISE LOGS FOR THIS USER
     const getData = { 'exercise': 1};
-    res.render('excerise', { getData });
+    res.render('exercise', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -91,7 +91,7 @@ router.get('/:userId/sleep', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL SLEEP LOGS FOR THIS USER
     const getData = { 'sleep': 8};
-    res.render('sleep', { getData });
+    res.render('sleep', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -104,7 +104,7 @@ router.get('/:userId/coffee', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL COFFEE LOGS FOR THIS USER
     const getData = { 'coffee': 2};
-    res.render('coffee', { getData });
+    res.render('coffee', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -117,7 +117,7 @@ router.get('/:userId/water', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL WATER LOGS FOR THIS USER
     const getData = { 'water': 2};
-    res.render('water', { getData });
+    res.render('water', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -130,7 +130,7 @@ router.get('/:userId/alcohol', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL ALCOHOL LOGS FOR THIS USER
     const getData = { 'alcohol': 0};
-    res.render('alcohol', { getData });
+    res.render('alcohol', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -143,7 +143,7 @@ router.get('/:userId/steps', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL STEPS LOGS FOR THIS USER
     const getData = { 'steps': 5000};
-    res.render('steps', { getData });
+    res.render('steps', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
@@ -156,7 +156,7 @@ router.get('/:userId/calories', async (req, res) => {
   try {
     // CREATE SEQUELIZE QUERY TO GET ALL CALORIES LOGS FOR THIS USER
     const getData = { 'calories': 2100};
-    res.render('calories', { getData });
+    res.render('calories', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
     res.render();
