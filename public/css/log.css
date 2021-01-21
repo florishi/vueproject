@@ -1,5 +1,5 @@
 .messageBg{
-    background-image: url(../img/LastImg-01.png);
+    background-image: url(../img/balloon-01.png);
     background-size: cover;
     height: 100vh;
 }
@@ -30,7 +30,7 @@
 
 .affirmationName{
     font-family: 'Abril Fatface', cursive;
-    font-size: 70px;
+    font-size: 60px;
     
 }
 
@@ -64,9 +64,24 @@
 .table{
     margin-top:40px;
 }
+.dashboardBackground{
+    background-image: url(../img/dashboardBg-01.png);
+    background-size: cover;
+    height: 100vh;
+}
 
 .historyBG{
     background-image: url(../img/moodPebble-01.png);
     background-size: cover;
     height: 100vh;
+}
+
+.historybtn{
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.deletebtn{
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
 }

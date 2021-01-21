@@ -17,7 +17,7 @@
     font-size: 40px;
 }
 .pebbleIMG{
-    width: 900px;
+    width: 1000px;
     margin-left: -200px;
     margin-top: -80px;
     
@@ -31,6 +31,9 @@
     font-family: 'Abril Fatface', cursive;
 }
 
+.mainPageTitle{
+    margin-top: 30px;
+}
 
 .dot{
     height: 20px;
@@ -87,9 +90,13 @@
 
 .aboutIMG{
     width: 1600px;
-    
     position: relative;
-    top: -140px;
+    top: 50px;
+    right: 250px;
+}
+
+.about-text{
+    margin-top:20px;
 }
 
 .add{
