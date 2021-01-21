@@ -1,7 +1,7 @@
 /* login page */
 .cardF{
     width: 600px;
-    height: 700px;
+    height: 600px;
     background:white;
     border: 0;
     border-radius: 20px;
@@ -13,15 +13,22 @@
     background-size: cover;
     height: 100vh;
 }
+.login-container{
+    margin-top: 50px;
+}
 
 .hide {
     display: none;
     color: red;
 }
 
-.card-body{
+/*.card-body{
     
     margin-top: 30px;
+}*/
+
+.login-body{
+    margin-top: 50px;
 }
 
 .form-input{
@@ -159,3 +166,32 @@
     transition: 0.5s;
     padding: 12px;
 }
+@media only screen and (max-width: 600px) {
+    .cardG {
+        width: 10px;
+        height: auto;
+        background:white;
+        border: 0;
+        border-radius: 20px;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    }
+    .FC{
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+        border: 2px solid orange;
+        border-radius: 50px;
+        color: #000;
+        font-size: 90%;
+        width:500px;
+        height: 50px;
+        letter-spacing: .1rem;
+        transition: 0.5s;
+        padding: 12px;
+    }
+    .dashboard-body{
+        margin: 20px;
+        width: 10px;
+    }
+  }
+
