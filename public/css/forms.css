@@ -1,5 +1,6 @@
+/* login page */
 .cardF{
-    width: 800px;
+    width: 600px;
     height: 700px;
     background:white;
     border: 0;
@@ -19,7 +20,7 @@
 }
 
 .card-body{
-    padding: 7rem;
+    
     margin-top: 30px;
 }
 
@@ -79,6 +80,7 @@
     border-radius: 50%;
     display: inline-block;
 }
+
 .dotlogo{
     height: 10px;
     width: 10px;
@@ -102,4 +104,58 @@
 .loginsubtitle{
     font-family: 'Bodoni Moda', serif;
     opacity: 0.4;
+}
+
+/* dashboard page */
+
+.dashboardBackground{
+    background-image: url(../img/dashboardBg-01.png);
+    background-size: cover;
+    height: 100vh;
+}
+.cardG {
+    width: 600px;
+    height: auto;
+    background:white;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.bg{
+    background-image: url(..img/dashboardBg-01.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.dashboardTitle{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 75px;
+    margin-top: 80px;
+}
+
+.dashboard-body{
+    margin: 20px;
+}
+
+
+.moodTitle{
+    margin-left: 30px;
+}
+
+
+
+.FC{
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid orange;
+    border-radius: 50px;
+    color: #000;
+    font-size: 90%;
+    width:500px;
+    height: 50px;
+    letter-spacing: .1rem;
+    transition: 0.5s;
+    padding: 12px;
 }

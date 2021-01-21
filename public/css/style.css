@@ -32,7 +32,13 @@
 }
 
 
-
+.dot{
+    height: 20px;
+    width: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
 .dotlogo{
     height: 10px;
     width: 10px;

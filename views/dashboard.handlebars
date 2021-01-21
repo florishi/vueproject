@@ -1,63 +1,74 @@
-<div class="loginBackground">
-  <div class="container ">
-    <div class="row px-3">
-      <div class="col-lg-10 col-xl-9 cardG flex-row mx-auto px-0">
-        <div class="im-left d-none d-md-flex">
-          <div class="card-body">
-            <h4 class="dashboardTitle text-center mt-4">Your Daily Log</h4>
-            <form class="form-box px-3">
-              <div class="input-group mb-3">
-                <div class="form-group">
-                  <label for="mood">What is your mood today?</label>
-                  <select class="form-control" id="mood">
-                    <option selected>Choose...</option>
-                    <option>Happy</option>
-                    <option>Sad</option>
-                    <option>Anxious</option>
-                    <option>Joyful</option>
-                    <option>Relaxed</option>
-                  </select>
+ 
+  <div class="dashboardBackground">
+    <div class="container">
+      <nav class="navbar navbar-expand-md 
+navbar-light bg-transparent">
+      <a href="#" class="navbar-brand logo">SANAYA <span class="dotlogo"></span></a>
+    </nav>
+      <div class="row px-3">
+        <div class="col-md-6">
+          <h1 class="dashboardTitle text-uppercase">Enter your<br> daily log <span class="dot"></span></h1>
+          <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti laborum doloribus, <br> vel culpa inventore numquam dolores nesciunt ipsa, maiores voluptatibus architecto nulla</p>
+        </div>
+        <div class="col-md-6 col-xl-9 cardG flex-row mx-auto px-0">
+          <div class="im-left d-none d-md-flex">
+            <div class="card-body dashboard-body">
+             
+              <form class="form-box px-3 text-center">
+                <div class="input-group mb-3">
+                  <div class="form-group">
+                    <div class="moodTitle"><label for="mood">What is your mood today?</label></div>
+                    <select class="form-control FC" id="mood">
+                      <option selected>Choose...</option>
+                      <option>Happy</option>
+                      <option>Sad</option>
+                      <option>Anxious</option>
+                      <option>Joyful</option>
+                      <option>Relaxed</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="form-input">
-                <div class="form-group">
-                  <label class="form-label text-center" for="water">How many liters of water did you drink
-                    today?</label><br>
-                  <input type="number" class="form-control" id="water" placeholder="Water (liters)">
+                <div class="form-input">
+                  <div class="form-group">
+                    <label class="form-label text-center" for="water">How many liters of water did you drink
+                      today?</label><br>
+                    <input type="number" class="form-control" id="water" placeholder="Water (liters)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="coffee">How many cups of coffee do you drink
+                      daily?</label><br>
+                    <input type="number" class="form-control" id="coffee" placeholder="Coffee (cups)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="calorie">What is you daily calorie intake?</label><br>
+                    <input type="number" class="form-control" id="calorie" placeholder="calories (kcal)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="alcohol">What is you daily Alcohol intake?</label><br>
+                    <input type="number" class="form-control" id="alcohol" placeholder="Alcohol (units)">
+                  </div>
+                  <div class="form-group">
+                    <label for="steps">Log in your daily steps</label>
+                    <input type="number" class="form-control" id="steps" placeholder="steps">
+                  </div>
+                  <div class="form-group">
+                    <label for="sleep">How many hours did you sleep last night?</label>
+                    <input type="number" class="form-control" id="sleep" placeholder="sleep (hours)">
+                  </div>
+                  <div class="form-group">
+                    <label for="exercise">How many minutes did you excercise today?</label>
+                    <input type="number" class="form-control" id="exercise" placeholder="excercise (minutes)">
+                  </div>
+                  <div class="mb-3">
+                    <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="coffee">How many cups of coffee do you drink
-                    daily?</label><br>
-                  <input type="number" class="form-control" id="coffee" placeholder="Coffee (cups)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="calorie">What is you daily calorie intake?</label><br>
-                  <input type="number" class="form-control" id="calorie" placeholder="calories (kcal)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="alcohol">What is you daily Alcohol intake?</label><br>
-                  <input type="number" class="form-control" id="alcohol" placeholder="Alcohol (units)">
-                </div>
-                <div class="form-group">
-                  <label for="steps">Log in your daily steps</label>
-                  <input type="number" class="form-control" id="steps" placeholder="steps">
-                </div>
-                <div class="form-group">
-                  <label for="sleep">How many hours did you sleep last night?</label>
-                  <input type="number" class="form-control" id="sleep" placeholder="sleep (hours)">
-                </div>
-                <div class="form-group">
-                  <label for="exercise">How many minutes did you excercise today?</label>
-                  <input type="number" class="form-control" id="exercise" placeholder="excercise (minutes)">
-                </div>
-                <div class="mb-3">
-                  <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
+        
       </div>
     </div>
-  </div>
-</div>
+  
+  
