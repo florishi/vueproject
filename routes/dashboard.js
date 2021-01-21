@@ -48,7 +48,6 @@ router.get('/:userId/message/', async (req, res) => {
 // route to send user history dashboard
 router.get('/:userId/history', async (req, res) => {
   try {
-    const userId = req.params.userId;
   // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB
     const getData = { 'mood': 'relaxed'};
     res.render('history', { layout:'logs', getData });

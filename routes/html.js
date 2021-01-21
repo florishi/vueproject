@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
   try {
     let { name, email, userId } = req.body;
     let user = await orm.Users.findOne({where:{Email:email}, raw :true}).then((data) => data);
-    userId = nanoid()
+    userId = nanoid();
     console.log(`email is: ${email}`);
     console.log(`name: ${name}`);
     console.log(`local storage id:${userId}`);
@@ -31,7 +31,6 @@ router.post('/login', async (req, res) => {
     if(user !== null){
       await orm.Users.update({sessionId : userId}, {where:{id : user.id}});
     }
-    
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);

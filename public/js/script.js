@@ -25,8 +25,6 @@ $('#loginBtn').on('click', (event) => {
   } else {
     event.preventDefault();
     let userId;
-    //localStorage.setItem('userId', userId);
-  
     const data = {
       email: $('#email').val(),
       name: $('#name').val(),
@@ -40,7 +38,7 @@ $('#loginBtn').on('click', (event) => {
       contentType: 'application/json',
       success: function (response) {
         console.log(`sent ${response}`);
-        localStorage.setItem('userId',response.userId)
+        localStorage.setItem('userId',response.userId);
         window.location = `/dashboard/${response.userId}`;
       },
       error: function (err) {
