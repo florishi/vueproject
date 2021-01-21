@@ -15,9 +15,8 @@ router.post('/:userId', async (req, res) => {
     const userId = req.params.userId;
     const date = new Date().toISOString().split('T')[0];
     const { mood, water, steps, sleep, exercise, calorie, alcohol, coffee } = req.body;
-    const email = req.body.email;
-    console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date} email :${email}`);
-    const user = await orm.Users.findOne({where:{Email:email}, raw :true}).then((data) => data);
+    console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date}`);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     userQuery.createStress(user.id,mood,sleep,exercise,coffee,date);
     userQuery.createHealth(user.id,water,alcohol,steps,calorie,date);
     return res.send({redirect: `/dashboard/${userId}/message`});
@@ -30,15 +29,13 @@ router.post('/:userId', async (req, res) => {
 // route to load affirmation page from an api call. Need to get name from db to personalise experience
 router.get('/:userId/message/', async (req, res) => {
   try {
+    const userId = req.params.userId;
     const response = await fetch('https://www.affirmations.dev/');
     if (response.ok) {
       const payload = await response.json();
       console.log(payload);
       // CREATE SEQUELIZE QUERY HERE TO GET NAME FROM DB
-      const validator = await orm.validator.findAll().then((data) => data);
-      const validatorLength = validator.length;
-      const valid = validator[validatorLength - 1];
-      const getDataUser = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+      const getDataUser = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
       console.log(getDataUser);
       res.render('message', {layout:'logs', payload,getDataUser});
     }
@@ -51,6 +48,7 @@ router.get('/:userId/message/', async (req, res) => {
 // route to send user history dashboard
 router.get('/:userId/history', async (req, res) => {
   try {
+    const userId = req.params.userId;
   // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB
     const getData = { 'mood': 'relaxed'};
     res.render('history', { layout:'logs', getData });
@@ -63,13 +61,9 @@ router.get('/:userId/history', async (req, res) => {
 // route to send user mood logs
 router.get('/:userId/mood', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL MOOD LOGS FOR THIS USER
-    //const getData = await userQuery.select('Stress',userId);
-    //console.log("getData",getData)
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -84,11 +78,9 @@ router.get('/:userId/mood', async (req, res) => {
 // route to send user excercise logs
 router.get('/:userId/exercise', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL EXERCISE LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -102,11 +94,9 @@ router.get('/:userId/exercise', async (req, res) => {
 // route to send user sleep logs
 router.get('/:userId/sleep', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL SLEEP LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -120,11 +110,9 @@ router.get('/:userId/sleep', async (req, res) => {
 // route to send user coffee logs
 router.get('/:userId/coffee', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL COFFEE LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -138,11 +126,9 @@ router.get('/:userId/coffee', async (req, res) => {
 // route to send user water logs
 router.get('/:userId/water', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL WATER LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -156,11 +142,9 @@ router.get('/:userId/water', async (req, res) => {
 // route to send user alcohol logs
 router.get('/:userId/alcohol', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL ALCOHOL LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -175,11 +159,9 @@ router.get('/:userId/alcohol', async (req, res) => {
 // route to send user steps logs
 router.get('/:userId/steps', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL STEPS LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
@@ -193,11 +175,9 @@ router.get('/:userId/steps', async (req, res) => {
 // route to send user calories logs
 router.get('/:userId/calories', async (req, res) => {
   try {
+    const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL CALORIES LOGS FOR THIS USER
-    const validator = await orm.validator.findAll().then((data) => data);
-    const validatorLength = validator.length;
-    const valid = validator[validatorLength - 1];
-    const user = await orm.Users.findOne({where:{id:valid.usersId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
       return data;
     });
