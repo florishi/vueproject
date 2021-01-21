@@ -27,7 +27,7 @@ router.post('/:userId', async (req, res) => {
 });
 
 // route to load affirmation page from an api call. Need to get name from db to personalise experience
-router.get('/:userId/message/', async (req, res) => {
+router.get('/:userId/message', async (req, res) => {
   try {
     const userId = req.params.userId;
     const response = await fetch('https://www.affirmations.dev/');
@@ -158,6 +158,13 @@ router.get('/:userId/calories', async (req, res) => {
 // route for redirecting to homepage
 router.get('/:userId/logout', (req, res) => {
   res.redirect('/');
+});
+
+// route for deleting user db and local storage data
+router.delete('/:userId', (req, res) => {
+  const userId = req.params.userId;
+  // DB QUERY TO DELETE USER RECORDS
+  res.json({ 'userId': userId});
 });
 
 module.exports = router;
