@@ -2,18 +2,26 @@ const loginValidation = () => {
   const email = $('#email').val();
   const name = $('#name').val();
   const regexSimple = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/;
-  /*const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;*/
   if (name === '' || name === null) {
-    $('#errorName').toggle('show hide');
+    $('#errorName').removeClass('hide');
     return false;
+  } else {
+    $('#errorName').removeClass('show');
+    $('#errorName').addClass('hide');
   }
   if (email === '' || email === null) {
-    $('#errorEmail').toggle('show hide');
+    $('#errorEmail').removeClass('hide');
     return false;
+  } else {
+    $('#errorEmail').removeClass('show');
+    $('#errorEmail').addClass('hide');
   }
   if (!email.match(regexSimple)) {
-    $('#errorEmail2').toggle('show hide');
+    $('#errorEmail2').removeClass('hide');
     return false;
+  } else {
+    $('#errorEmail2').removeClass('show');
+    $('#errorEmail2').addClass('hide');
   }
   return true;
 };
@@ -38,7 +46,7 @@ $('#loginBtn').on('click', (event) => {
       contentType: 'application/json',
       success: function (response) {
         console.log(`sent ${response}`);
-        localStorage.setItem('userId',response.userId);
+        localStorage.setItem('userId', response.userId);
         window.location = `/dashboard/${response.userId}`;
       },
       error: function (err) {
