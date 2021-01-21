@@ -34,41 +34,32 @@ router.get('/:userId/message/', async (req, res) => {
     if (response.ok) {
       const payload = await response.json();
       console.log(payload);
-      // CREATE SEQUELIZE QUERY HERE TO GET NAME FROM DB
       const getDataUser = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
       console.log(getDataUser);
-      res.render('message', {layout:'logs', payload,getDataUser});
+      res.render('message', {layout:'logs', payload, getDataUser});
     }
   } catch(error) {
     console.log(error);
-    res.render('message', { mesaage: 'insert static affirmation here as unable to get from api' });
+    res.status(503).render('message', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
 // route to send user history dashboard
-router.get('/:userId/history', async (req, res) => {
-  try {
-  // CREATE SEQUELIZE QUERY HERE TO GET ALL HISTORY LOGS FROM DB
-    const getData = { 'mood': 'relaxed'};
-    res.render('history', { layout:'logs', getData });
-  } catch(error) {
-    console.log(error);
-    res.render('history');
-  }
+router.get('/:userId/history', (req, res) => {
+  res.render('history', {layout:'logs'});
 });
 
 // route to send user mood logs
 router.get('/:userId/mood', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL MOOD LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
-    res.render('mood', { getData });
+    res.render('mood', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('mood', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -76,13 +67,12 @@ router.get('/:userId/mood', async (req, res) => {
 router.get('/:userId/exercise', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL EXERCISE LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('exercise', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('exercise', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -90,13 +80,12 @@ router.get('/:userId/exercise', async (req, res) => {
 router.get('/:userId/sleep', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL SLEEP LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('sleep', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('sleep', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -104,13 +93,12 @@ router.get('/:userId/sleep', async (req, res) => {
 router.get('/:userId/coffee', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL COFFEE LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('coffee', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('coffee', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -118,13 +106,12 @@ router.get('/:userId/coffee', async (req, res) => {
 router.get('/:userId/water', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL WATER LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('water', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('water', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -132,14 +119,13 @@ router.get('/:userId/water', async (req, res) => {
 router.get('/:userId/alcohol', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL ALCOHOL LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
     res.render('alcohol', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('alcohol', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -147,13 +133,12 @@ router.get('/:userId/alcohol', async (req, res) => {
 router.get('/:userId/steps', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL STEPS LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('steps', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('steps', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -161,13 +146,12 @@ router.get('/:userId/steps', async (req, res) => {
 router.get('/:userId/calories', async (req, res) => {
   try {
     const userId = req.params.userId;
-    // CREATE SEQUELIZE QUERY TO GET ALL CALORIES LOGS FOR THIS USER
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('calories', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
-    res.render();
+    res.status(503).render('calories', {layout:'logs', message: 'Unable to fetch data...' });
   }
 });
 
@@ -175,6 +159,5 @@ router.get('/:userId/calories', async (req, res) => {
 router.get('/:userId/logout', (req, res) => {
   res.redirect('/');
 });
-
 
 module.exports = router;
