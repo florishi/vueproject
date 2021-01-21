@@ -7,9 +7,11 @@
     </tr>
   </thead>
   <tbody>
+    {{#each getData }}
     <tr>
-      <th scope="row">16.01.2021</th>
-      <td>2</td>
+      <th scope="row">{{inputDate}}</th>
+      <td>{{hoursSleep}}</td>
     </tr>
+    {{/each}}
   </tbody>
 </table>

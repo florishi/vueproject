@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { nanoid } = require('nanoid');
 const userQuery = require('../models/user');
+const orm = require('../config/orm');
+
 
 // route for home page
 router.get('/', (req, res) => {
@@ -17,14 +19,23 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     let { name, email, userId } = req.body;
+    let user = await orm.Users.findOne({where:{Email:email}, raw :true}).then((data) => data);
     console.log(`email is: ${email}`);
     console.log(`name: ${name}`);
     console.log(`local storage id:${userId}`);
-    if (!userId) {
-      userId = nanoid();
-    }
     // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
-    userQuery.createUsers(userId,email,name);
+    if(user === null){
+      await userQuery.createUsers(userId,email,name);
+      let Users = await orm.Users.findAll({raw :true}).then((data) => data);
+      await userQuery.createValidator(Users.length + 1,nanoid());
+    }
+    if(user.sessionId !== userId && user !== null){
+      await orm.Users.update({sessionId : userId}, {where:{id : user.id}});
+      await userQuery.createValidator(user.id,nanoid());
+    }
+    if(user.sessionId === userId && user !== null ){
+      await userQuery.createValidator(user.id,nanoid());
+    }
     res.json({ userId: userId});
   } catch(error) {
     console.log(error);
