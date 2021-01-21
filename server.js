@@ -3,10 +3,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 require('dotenv').config();
-const session = require('express-session');
-
-// require files
-//const db = require('./config/db');
 
 // initiate
 const app = express();
@@ -15,14 +11,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// set session
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
 
 // set handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
