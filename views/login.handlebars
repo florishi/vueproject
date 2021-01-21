@@ -1,18 +1,39 @@
-<div>
-  <h1>login handlebars loaded</h1>
+<div class="loginBackground">
+  <div class="container">
+    <nav class="navbar navbar-expand-md 
+navbar-light bg-transparent">
+      <a href="#" class="navbar-brand logo">SANAYA <span class="dotlogo"></span></a>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="row px-3">
+      <div class="col-lg-10 col-xl-9 cardF flex-row mx-auto px-0">
+        <div class="im-left d-none d-md-flex">
+          <div class="card-body">
+            <h4 class="loginTitle text-center mt-4">SANAYA <span class="dot"></span></h4>
+            <p class="text-center text-uppercase loginsubtitle">Begin by entering your name and email address</p>
+            <form id="loginForm" class="form-box px-3">
+              <div class="form-input">
+                <span><i class="fas fa-user"></i></span>
+                <label for="name" class="form-label"></label>
+                <input type="text" id="name" name="name" placeholder="Name">
+                <div id="errorName" class="hide">Please enter name</div>
+              </div>
+              <div class="form-input">
+                <span><i class="fas fa-envelope-open-text"></i></span>
+                <label for="email" class="form-label"></label>
+                <input class="ii" id="email" type="email" name="email" placeholder="Email Address">
+                <div id="invalid_email"></div>
+                <div id="errorEmail" class="hide">Please enter a value</div>
+                <div id="errorEmail2" class="hide">Please enter a valid email</div>
+              </div>
+              <div class="mb-3">
+                <button type="submit" id="loginBtn" class="btn btn-block text-uppercase">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<form>
-  <div class="form-group"></div>
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" class="form-control" id="email" aria-describedby="emailHelp"
-    placeholder="Enter email">
-  </div>
-  <div class="form-group"></div>
-    <label for="name">Name</label>
-    <input type="text" class="form-control" class="form-control" id="name" placeholder="Name">
-  </div>
-  <button type="submit" class="btn btn-primary" id="loginBtn">Submit</button>
-</form>
-
-<a href="dashboard">Next</a>

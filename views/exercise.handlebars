@@ -1,0 +1,43 @@
+<div class="historyBG">
+<div class="container">
+    <nav class="navbar navbar-expand-md 
+navbar-light bg-transparent">
+      <a href="#" class="navbar-brand logo">SANAYA <span class="dotlogo"></span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="history">
+              View My Logs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              Logout
+            </a>
+        </ul>
+      </div>
+    </nav>
+    <div class="container historySection">
+<h1 class="logTitle text-center text-uppercase">Exercise <span class="dot"></span></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Your exercise (minutes)</th>
+    </tr>
+  </thead>
+  <tbody>
+     {{#each getData }}
+    <tr>
+      <th scope="row">{{inputDate}}</th>
+      <td>{{minsExercise}}</td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+</div>
+</div>
