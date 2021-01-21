@@ -9,7 +9,6 @@ const connection = new Sequelize(
     dialect: 'mysql'
   });
 
-
 connection.authenticate().then(()=>{
   console.log('Connection has been established successfully.');
 });
