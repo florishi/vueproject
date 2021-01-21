@@ -17,21 +17,6 @@ const loginValidation = () => {
   }
   return true;
 };
-function makeid(length) {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
-
-let userId = localStorage.getItem('userId');
-if(userId === null){
-  userId = makeid(22);
-  localStorage.setItem('userId', userId);
-}
 
 // POST LOGIN FORM DATA TO /login route
 $('#loginBtn').on('click', (event) => {
@@ -39,6 +24,7 @@ $('#loginBtn').on('click', (event) => {
     event.preventDefault();
   } else {
     event.preventDefault();
+    let userId;
     const data = {
       email: $('#email').val(),
       name: $('#name').val(),
@@ -52,7 +38,7 @@ $('#loginBtn').on('click', (event) => {
       contentType: 'application/json',
       success: function (response) {
         console.log(`sent ${response}`);
-        localStorage.setItem('email', data.email);
+        localStorage.setItem('userId',response.userId);
         window.location = `/dashboard/${response.userId}`;
       },
       error: function (err) {
@@ -74,7 +60,6 @@ $('#submitBtn').on('click', (event) => {
     calorie: $('#calorie').val(),
     alcohol: $('#alcohol').val(),
     coffee: $('#coffee').val(),
-    email : localStorage.getItem('email')
   };
   const userId = localStorage.getItem('userId');
   console.log(`data values ${data}`);

@@ -30,9 +30,5 @@ create table health(
     inputDate date
 );
 
-create table validators(
-	id  integer not null unique auto_increment,
-    usersId integer,
-    valueKey varchar(22)
-);
+
 
