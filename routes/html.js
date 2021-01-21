@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
       await userQuery.createUsers(userId,email,name);
     }
     if(user !== null){
-      await orm.Users.update({sessionId : userId}, {where:{id : user.id}});
+      await orm.Users.update({sessionId : userId,userName:name}, {where:{id : user.id}});
     }
     res.json({ userId: userId});
   } catch(error) {
