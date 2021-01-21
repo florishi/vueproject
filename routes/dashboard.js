@@ -16,7 +16,7 @@ router.post('/:userId', async (req, res) => {
     const date = new Date().toISOString().split('T')[0];
     const { mood, water, steps, sleep, exercise, calorie, alcohol, coffee } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date}`);
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     userQuery.createStress(user.id,mood,sleep,exercise,coffee,date);
     userQuery.createHealth(user.id,water,alcohol,steps,calorie,date);
     return res.send({redirect: `/dashboard/${userId}/message`});
@@ -35,7 +35,7 @@ router.get('/:userId/message/', async (req, res) => {
       const payload = await response.json();
       console.log(payload);
       // CREATE SEQUELIZE QUERY HERE TO GET NAME FROM DB
-      const getDataUser = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
+      const getDataUser = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
       console.log(getDataUser);
       res.render('message', {layout:'logs', payload,getDataUser});
     }
@@ -62,10 +62,8 @@ router.get('/:userId/mood', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL MOOD LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
     res.render('mood', { getData });
   } catch(error) {
@@ -79,10 +77,8 @@ router.get('/:userId/exercise', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL EXERCISE LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('exercise', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
@@ -95,10 +91,8 @@ router.get('/:userId/sleep', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL SLEEP LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('sleep', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
@@ -111,10 +105,8 @@ router.get('/:userId/coffee', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL COFFEE LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     res.render('coffee', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
@@ -127,10 +119,8 @@ router.get('/:userId/water', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL WATER LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('water', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
@@ -143,10 +133,8 @@ router.get('/:userId/alcohol', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL ALCOHOL LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
     res.render('alcohol', { layout:'logs', getData });
   } catch(error) {
@@ -160,10 +148,8 @@ router.get('/:userId/steps', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL STEPS LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('steps', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
@@ -176,10 +162,8 @@ router.get('/:userId/calories', async (req, res) => {
   try {
     const userId = req.params.userId;
     // CREATE SEQUELIZE QUERY TO GET ALL CALORIES LOGS FOR THIS USER
-    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true}).then((data) => data);
-    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true}).then((data) => {
-      return data;
-    });
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     res.render('calories', { layout:'logs', getData });
   } catch(error) {
     console.log(error);
