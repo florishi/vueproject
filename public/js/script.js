@@ -17,14 +17,28 @@ const loginValidation = () => {
   }
   return true;
 };
+function makeid(length) {
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+let userId = localStorage.getItem('userId');
+if(userId === null){
+  userId = makeid(22);
+  localStorage.setItem('userId', userId);
+}
 
 // POST LOGIN FORM DATA TO /login route
 $('#loginBtn').on('click', (event) => {
- 
   if (loginValidation() === false) {
     event.preventDefault();
   } else {
-    const userId = localStorage.getItem('userId');
+    event.preventDefault();
     const data = {
       email: $('#email').val(),
       name: $('#name').val(),
@@ -38,7 +52,6 @@ $('#loginBtn').on('click', (event) => {
       contentType: 'application/json',
       success: function (response) {
         console.log(`sent ${response}`);
-        localStorage.setItem('userId', response.userId);
         localStorage.setItem('email', data.email);
         window.location = `/dashboard/${response.userId}`;
       },

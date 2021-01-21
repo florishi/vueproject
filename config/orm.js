@@ -33,8 +33,16 @@ const Health = connection.define('health', {
   timestamps : false,
 });
 
+const validator = connection.define('validator',{
+  id       :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
+  usersId   :{type: DataTypes.INTEGER},
+  valueKey :{type: DataTypes.STRING(10)}
+},{
+  timestamps : false,
+});
 module.exports = {
   Users,
   Stress,
-  Health
+  Health,
+  validator
 };
