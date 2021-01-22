@@ -57,7 +57,6 @@ router.post('/:userId/message/', async (req, res) => {
     const photoName = `${nanoid()}${name}`;
     if(name && data){
       const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
-      console.log(user)
       await userQuery.createImage(user.id,photoName,data,date);
       await mkdirp('public/selfies');
       res.json({name : photoName});
@@ -211,7 +210,6 @@ router.get('/:userId/selfies', async (req,res) => {
     }
     );
   }
-  console.log(img)
   res.render('selfie',{layouts : 'logs',img});
 });
 
