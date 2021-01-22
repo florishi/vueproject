@@ -56,111 +56,108 @@ $('#loginBtn').on('click', (event) => {
 });
 
 // VALIDATION CHECK FOR DASHBOARD FORM
-/*
+
 const formValidation = () => {
-const mood = $('#mood option:selected').text();
-const water = $('#water').val();
-const steps = $('#steps').val();
-const sleep = $('#sleep').val();
-const exercise = $('#exercise').val();
-const calorie = $('#calorie').val();
-const alcohol = $('#alcohol').val();
-const coffee = $('#coffee').val();
+  const mood = $('#mood option:selected').text();
+  const water = $('#water').val();
+  const steps = $('#steps').val();
+  const sleep = $('#sleep').val();
+  const exercise = $('#exercise').val();
+  const calorie = $('#calorie').val();
+  const alcohol = $('#alcohol').val();
+  const coffee = $('#coffee').val();
   if (mood === '' || mood === null) {
-    $('#messageMood').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageMood').removeClass('show');
-    $('#messageMood').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('hide');
   }
-  /*if (water === '' || water === null) {
-    $('messageWater').removeClass('hide');
+  if (water === '' || water === null) {
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageWater').removeClass('show');
-    $('#messageWater').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
   if (steps === '' || steps === null) {
-    $('#messageSteps').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageSteps').removeClass('show');
-    $('#messageSteps').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
   if (sleep === '' || sleep === null) {
-    $('#messageSleep').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageSleep').removeClass('show');
-    $('#messageSleep').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
   if (exercise === '' || exercise === null) {
-    $('#messageExercise').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageExercise').removeClass('show');
-    $('#messageExercise').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
   if (calorie === '' || calorie === null) {
-    $('#messageCalorie').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
   } else {
-    $('#messageCalorie').removeClass('show');
-    $('#messageCalorie').addClass('hide');
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
   if (alcohol === '' || alcohol === null) {
-    $('#messageAlcohol').removeClass('hide');
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageAlcohol').removeClass('show');
-    $('#messageAlcohol').addClass('hide');
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
   }
-  if (coffee === '' || coffee === null) {
-    $('#messageCoffee').removeClass('hide');
+  if(coffee === '' || coffee === null) {
+    $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#messageCoffee').removeClass('show');
-    $('#messageCoffee').addClass('hide');
-  }*/
-//return true;
-//};
+  }else {
+    $('#errorForm').removeClass('show');
+    $('#errorForm').addClass('hide');
+  }
+  return true;
+};
 
 // USER DASHBOARD POST REQUEST
 $('#submitBtn').on('click', (event) => {
-  /*
-  if (loginValidation() === false) {
+  if (formValidation() === false) {
     event.preventDefault();
-  } else {
-  */
-  event.preventDefault();
-  const data = {
-    mood: $('#mood option:selected').text(),
-    water: $('#water').val(),
-    steps: $('#steps').val(),
-    sleep: $('#sleep').val(),
-    exercise: $('#exercise').val(),
-    calorie: $('#calorie').val(),
-    alcohol: $('#alcohol').val(),
-    coffee: $('#coffee').val(),
-  };
-  const userId = localStorage.getItem('userId');
-  console.log(`data values ${data}`);
-  $.ajax({
-    type: 'POST',
-    url: `/dashboard/${userId}`,
-    data: JSON.stringify(data),
-    contentType: 'application/json',
-    success: function (response) {
-      console.log(`sent ${response}`);
-      if (response.redirect) {
-        window.location = response.redirect;
-      }
-    },
-    error: function (err) {
-      console.log(`Error ${err}`);
-    },
-  });
-//}
+  }else{
+    event.preventDefault();
+    const data = {
+      mood: $('#mood option:selected').text(),
+      water: $('#water').val(),
+      steps: $('#steps').val(),
+      sleep: $('#sleep').val(),
+      exercise: $('#exercise').val(),
+      calorie: $('#calorie').val(),
+      alcohol: $('#alcohol').val(),
+      coffee: $('#coffee').val(),
+    };
+    const userId = localStorage.getItem('userId');
+    console.log(`data values ${data}`);
+    $.ajax({
+      type: 'POST',
+      url: `/dashboard/${userId}`,
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: function (response) {
+        console.log(`sent ${response}`);
+        if (response.redirect) {
+          window.location = response.redirect;
+        }
+      },
+      error: function (err) {
+        console.log(`Error ${err}`);
+      },
+    });
+  }
 });
 
 

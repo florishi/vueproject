@@ -16,7 +16,7 @@ router.get('/:userId', (req, res) => {
 router.post('/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
-    const date = new Date().toISOString().split('T')[0];
+    const date = new Date().toDateString();
     const { mood, water, steps, sleep, exercise, calorie, alcohol, coffee } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date}`);
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
@@ -184,16 +184,20 @@ router.get('/:userId/logout', (req, res) => {
 });
 
 // route for deleting user db and local storage data
-router.delete('/:userId', (req, res) => {
+router.delete('/:userId', async (req, res) => {
   const userId = req.params.userId;
   // DB QUERY TO DELETE USER RECORDS AND GET EMAIL TO ADD TO RESPONSE
+  const user = await orm.Users.findOne({where: {sessionId: userId}, raw:true});
+  await orm.Image.destroy({where : {usersId: user.id}, raw:true});
+  await orm.Health.destroy({where : {usersId: user.id}, raw:true});
+  await orm.Stress.destroy({where : {usersId: user.id}, raw:true});
   res.json({ 'userId': userId});
 });
 router.get('/:userId/selfies', async (req,res) => {
   const userId = req.params.userId;
   const user = await orm.Users.findOne({where: {sessionId: userId}, raw:true});
   const img = await orm.Image.findAll({where : {usersId: user.id}, raw:true});
-
+  await mkdirp('public/selfies');
   for(let i = 0; i < img.length; i ++){
     await fs.writeFile(`public/selfies/${img[i].imageName}`, img[i].image, (err) =>{
       if(err){
