@@ -98,7 +98,7 @@ $('#deleteBtn').on('click', (event) => {
     contentType: 'application/json',
     success: function (response) {
       localStorage.removeItem('userId', response.userId);
-        window.location = '/';
+      window.location = '/';
     },
     error: function (err) {
       console.log(`Error ${err}`);
