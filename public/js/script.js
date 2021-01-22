@@ -91,6 +91,7 @@ $('#submitBtn').on('click', (event) => {
 if(document.getElementById('inpFile') !== null){
   const inpFile = document.getElementById('inpFile');
   const previewContainer = document.getElementById('imagePreview');
+  const submitImage = document.getElementById('submitImage');
   inpFile.addEventListener('change', function() {
     const file = this.files[0];
     if(file){
@@ -99,6 +100,7 @@ if(document.getElementById('inpFile') !== null){
       const previewDefaultText = previewContainer.querySelector('.image-preview-text');
       previewDefaultText.style.display = 'none';
       previewImage.style.display = 'block';
+      submitImage.style.display = 'block';
 
       reader.addEventListener('load', function() {
         previewImage.setAttribute('src',this.result);
