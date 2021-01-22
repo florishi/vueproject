@@ -1,3 +1,4 @@
+// VALIDATION CHECK FOR LOGIN FORM
 const loginValidation = () => {
   const email = $('#email').val();
   const name = $('#name').val();
@@ -26,43 +27,7 @@ const loginValidation = () => {
   return true;
 };
 
-const dashboardValidation = () => {
-  const mood = $('#mood option:selected').text(),
-  const name = $('#name').val();
-  const water= $('#water').val(),
-  const steps= $('#steps').val(),
-  const sleep= $('#sleep').val(),
-  const exercise= $('#exercise').val(),
-  const calorie= $('#calorie').val(),
-  const alcohol= $('#alcohol').val(),
-  const coffee= $('#coffee').val(),
-  if (mood === '' || mood === null) {
-    $('#errorName').removeClass('hide');
-    return false;
-  } else {
-    $('#errorName').removeClass('show');
-    $('#errorName').addClass('hide');
-  }
-  if (name === '' || name === null) {
-    $('#errorEmail').removeClass('hide');
-    return false;
-  } else {
-    $('#errorEmail').removeClass('show');
-    $('#errorEmail').addClass('hide');
-  }
-  if (!email.match(regexSimple)) {
-    $('#errorEmail2').removeClass('hide');
-    return false;
-  } else {
-    $('#errorEmail2').removeClass('show');
-    $('#errorEmail2').addClass('hide');
-  }
-  return true;
-};
-
-
-
-// POST LOGIN FORM DATA TO /login route
+// LOGIN FORM POST REQUEST
 $('#loginBtn').on('click', (event) => {
   if (loginValidation() === false) {
     event.preventDefault();
@@ -90,8 +55,83 @@ $('#loginBtn').on('click', (event) => {
   }
 });
 
-// POST USER DASHBOARD FORM DATA TO /dashboard route
+// VALIDATION CHECK FOR DASHBOARD FORM
+/*
+const formValidation = () => {
+const mood = $('#mood option:selected').text();
+const water = $('#water').val();
+const steps = $('#steps').val();
+const sleep = $('#sleep').val();
+const exercise = $('#exercise').val();
+const calorie = $('#calorie').val();
+const alcohol = $('#alcohol').val();
+const coffee = $('#coffee').val();
+  if (mood === '' || mood === null) {
+    $('#messageMood').removeClass('hide');
+    return false;
+  } else {
+    $('#messageMood').removeClass('show');
+    $('#messageMood').addClass('hide');
+  }
+  /*if (water === '' || water === null) {
+    $('messageWater').removeClass('hide');
+    return false;
+  } else {
+    $('#messageWater').removeClass('show');
+    $('#messageWater').addClass('hide');
+  }
+  if (steps === '' || steps === null) {
+    $('#messageSteps').removeClass('hide');
+    return false;
+  } else {
+    $('#messageSteps').removeClass('show');
+    $('#messageSteps').addClass('hide');
+  }
+  if (sleep === '' || sleep === null) {
+    $('#messageSleep').removeClass('hide');
+    return false;
+  } else {
+    $('#messageSleep').removeClass('show');
+    $('#messageSleep').addClass('hide');
+  }
+  if (exercise === '' || exercise === null) {
+    $('#messageExercise').removeClass('hide');
+    return false;
+  } else {
+    $('#messageExercise').removeClass('show');
+    $('#messageExercise').addClass('hide');
+  }
+  if (calorie === '' || calorie === null) {
+    $('#messageCalorie').removeClass('hide');
+    return false;
+  } else {
+    $('#messageCalorie').removeClass('show');
+    $('#messageCalorie').addClass('hide');
+  }
+  if (alcohol === '' || alcohol === null) {
+    $('#messageAlcohol').removeClass('hide');
+    return false;
+  } else {
+    $('#messageAlcohol').removeClass('show');
+    $('#messageAlcohol').addClass('hide');
+  }
+  if (coffee === '' || coffee === null) {
+    $('#messageCoffee').removeClass('hide');
+    return false;
+  } else {
+    $('#messageCoffee').removeClass('show');
+    $('#messageCoffee').addClass('hide');
+  }*/
+//return true;
+//};
+
+// USER DASHBOARD POST REQUEST
 $('#submitBtn').on('click', (event) => {
+  /*
+  if (loginValidation() === false) {
+    event.preventDefault();
+  } else {
+  */
   event.preventDefault();
   const data = {
     mood: $('#mood option:selected').text(),
@@ -120,8 +160,8 @@ $('#submitBtn').on('click', (event) => {
       console.log(`Error ${err}`);
     },
   });
+//}
 });
-
 
 
 if(document.getElementById('inpFile') !== null){
@@ -185,4 +225,3 @@ $('#deleteBtn').on('click', (event) => {
     },
   });
 });
-
