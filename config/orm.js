@@ -17,7 +17,7 @@ const Stress = connection.define('Stress', {
   hoursSleep   :{type:DataTypes.INTEGER },
   minsExercise :{type:DataTypes.INTEGER},
   coffeeUnits  :{type:DataTypes.INTEGER},
-  inputDate    :{type:DataTypes.DATE}
+  inputDate    :{type:DataTypes.STRING(50)}
 },{
   timestamps : false,
 });
@@ -29,7 +29,7 @@ const Health = connection.define('health', {
   alchoolUnits :{type:DataTypes.INTEGER},
   steps        :{type:DataTypes.INTEGER},
   calories     :{type:DataTypes.INTEGER},
-  inputDate    :{type:DataTypes.DATE}
+  inputDate    :{type:DataTypes.STRING(50)}
 },{
   timestamps : false,
 });

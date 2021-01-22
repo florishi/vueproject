@@ -17,7 +17,7 @@ create table Stresses(
     hoursSleep integer,
     minsExercise integer,
     coffeeUnits integer,
-    inputDate date    
+    inputDate varchar(50)    
 );
 
 create table health(
@@ -27,7 +27,7 @@ create table health(
     alchoolUnits integer,
     steps integer,
     calories integer,
-    inputDate date
+    inputDate varchar(50)
 );
 
 create table images(
@@ -36,3 +36,6 @@ create table images(
     imageName varchar(255),
     image LONGBLOB
 );
+
+
+
