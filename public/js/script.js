@@ -173,7 +173,7 @@ if(document.getElementById('inpFile') !== null){
       const reader = new FileReader();
       const previewImage = previewContainer.querySelector('.image-preview__image');
       const previewDefaultText = previewContainer.querySelector('.image-preview-text');
-      previewDefaultText.style.display = 'none';
+      console.log(previewDefaultText);
       previewImage.style.display = 'block';
 
       reader.addEventListener('load', function() {
