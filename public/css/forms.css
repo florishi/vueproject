@@ -19,6 +19,9 @@
 
 .hide {
     display: none;
+}
+
+div#errorForm, div#errorName, div#errorEmail, div#errorEmail2  {
     color: red;
 }
 
