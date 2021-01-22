@@ -87,3 +87,21 @@ $('#submitBtn').on('click', (event) => {
     },
   });
 });
+
+// DELETE REQUEST FOR USER DATA
+$('#deleteBtn').on('click', (event) => {
+  event.preventDefault();
+  const userId = localStorage.getItem('userId');
+  $.ajax({
+    type: 'DELETE',
+    url: `/dashboard/${userId}`,
+    contentType: 'application/json',
+    success: function (response) {
+      localStorage.removeItem('userId', response.userId);
+      window.location = '/';
+    },
+    error: function (err) {
+      console.log(`Error ${err}`);
+    },
+  });
+});

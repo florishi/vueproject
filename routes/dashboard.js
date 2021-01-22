@@ -27,7 +27,7 @@ router.post('/:userId', async (req, res) => {
 });
 
 // route to load affirmation page from an api call. Need to get name from db to personalise experience
-router.get('/:userId/message/', async (req, res) => {
+router.get('/:userId/message', async (req, res) => {
   try {
     const userId = req.params.userId;
     const response = await fetch('https://www.affirmations.dev/');
@@ -56,7 +56,7 @@ router.get('/:userId/mood', async (req, res) => {
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
-    res.render('mood', { layout:'logs', getData });
+    res.render('mood', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('mood', {layout:'logs', message: 'Unable to fetch data...' });
@@ -69,7 +69,7 @@ router.get('/:userId/exercise', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
-    res.render('exercise', { layout:'logs', getData });
+    res.render('exercise', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('exercise', {layout:'logs', message: 'Unable to fetch data...' });
@@ -82,7 +82,7 @@ router.get('/:userId/sleep', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
-    res.render('sleep', { layout:'logs', getData });
+    res.render('sleep', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('sleep', {layout:'logs', message: 'Unable to fetch data...' });
@@ -95,7 +95,7 @@ router.get('/:userId/coffee', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Stress.findAll({where:{usersId:user.id}, raw: true});
-    res.render('coffee', { layout:'logs', getData });
+    res.render('coffee', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('coffee', {layout:'logs', message: 'Unable to fetch data...' });
@@ -108,7 +108,7 @@ router.get('/:userId/water', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
-    res.render('water', { layout:'logs', getData });
+    res.render('water', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('water', {layout:'logs', message: 'Unable to fetch data...' });
@@ -122,7 +122,7 @@ router.get('/:userId/alcohol', async (req, res) => {
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
     console.log(getData);
-    res.render('alcohol', { layout:'logs', getData });
+    res.render('alcohol', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('alcohol', {layout:'logs', message: 'Unable to fetch data...' });
@@ -135,7 +135,7 @@ router.get('/:userId/steps', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
-    res.render('steps', { layout:'logs', getData });
+    res.render('steps', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('steps', {layout:'logs', message: 'Unable to fetch data...' });
@@ -148,7 +148,7 @@ router.get('/:userId/calories', async (req, res) => {
     const userId = req.params.userId;
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
     const getData = await orm.Health.findAll({where:{usersId:user.id}, raw: true});
-    res.render('calories', { layout:'logs', getData });
+    res.render('calories', { layout:'logs', getData, user });
   } catch(error) {
     console.log(error);
     res.status(503).render('calories', {layout:'logs', message: 'Unable to fetch data...' });
@@ -158,6 +158,13 @@ router.get('/:userId/calories', async (req, res) => {
 // route for redirecting to homepage
 router.get('/:userId/logout', (req, res) => {
   res.redirect('/');
+});
+
+// route for deleting user db and local storage data
+router.delete('/:userId', (req, res) => {
+  const userId = req.params.userId;
+  // DB QUERY TO DELETE USER RECORDS AND GET EMAIL TO ADD TO RESPONSE
+  res.json({ 'userId': userId});
 });
 
 module.exports = router;
