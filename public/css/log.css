@@ -70,3 +70,15 @@
     background-size: cover;
     height: 100vh;
 }
+
+.image-preview{
+    width:300px;
+    height:100px;
+    border: 2px solid #dddddd;
+    margin-top:15px; 
+ }
+
+ .image-preview__image{
+     display:none;
+     width:100%;
+ }

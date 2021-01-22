@@ -13,10 +13,9 @@ const createHealth = (id,water,alchool,stepsIn,caloriesIn,date) =>{
   orm.Health.create({usersId:id,waterUnits:water,alchoolUnits:alchool,steps:stepsIn,calories:caloriesIn,inputDate:date});
 };
 
-const createValidator = (id,key) =>{
-  orm.validator.create({usersId:id,valueKey:key});
+const createValidator = (id,name,data) =>{
+  orm.Image.create({usersId:id,imageName:name,image:data});
 };
-
 
 module.exports = {
   createUsers,

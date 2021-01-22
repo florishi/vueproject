@@ -44,6 +44,22 @@ router.get('/:userId/message/', async (req, res) => {
   }
 });
 
+router.post('/:userId/message/', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const {name,data} = req.files.inpFile
+    if(name && data){
+    const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
+    await orm.image.create(user.id,name,data)
+  }else{
+    res.sendStatus(400)
+  }
+  } catch(error) {
+    console.log(error);
+    res.status(503).render('message', {layout:'logs', message: 'Unable to fetch data...' });
+  }
+});
+
 // route to send user history dashboard
 router.get('/:userId/history', (req, res) => {
   res.render('history', {layout:'logs'});
@@ -158,6 +174,13 @@ router.get('/:userId/calories', async (req, res) => {
 // route for redirecting to homepage
 router.get('/:userId/logout', (req, res) => {
   res.redirect('/');
+});
+
+router.delete('/:userId/history', (req, res) => {
+  const userId = req.params.userId;
+  console.log('delete button clicked')
+  // DB QUERY TO DELETE USER RECORDS
+  res.json({ userId: userId});
 });
 
 module.exports = router;
