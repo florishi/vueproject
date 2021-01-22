@@ -8,7 +8,6 @@ const connection = new Sequelize(
   { host: process.env.DB_localhost,
     dialect: 'mysql'
   });
-
 connection.authenticate().then(()=>{
   console.log('Connection has been established successfully.');
 });
