@@ -76,6 +76,17 @@
     height: 100vh;
 }
 
+.image-preview{
+    width:300px;
+    height:100px;
+    border: 2px solid #dddddd;
+    margin-top:15px; 
+ }
+
+ .image-preview__image{
+     display:none;
+     width:100%;
+ }
 .historybtn{
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }

@@ -19,8 +19,9 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     let { name, email, userId } = req.body;
-    let user = await orm.Users.findOne({where:{Email:email}, raw :true});
     userId = nanoid();
+    let user = await orm.Users.findOne({where:{Email:email}, raw :true});
+    console.log('nanoid',userId);
     console.log(`email is: ${email}`);
     console.log(`name: ${name}`);
     console.log(`local storage id:${userId}`);
