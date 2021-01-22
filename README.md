@@ -7,7 +7,7 @@ Sanaya is a fullstack CRUD application built with node.js, sequelize and express
 
 The application allows the user to login with thier email and name and navigate through the site, input their daily health and mood stats, recieve a random affirmation, upload and store images and view thier current and previous history log for each health and mood metric. It also allows the user to delete their records, both on the database and local storage.
 
-Sanaya was developed by a team of three University of Birmingham Coding Bootcampt students, [Sandy Bassi](https://github.com/rubybassi), [Renato Pombal](https://github.com/Ard847) and [Sumaya Hassan](https://github.com/Sumaya198), as part of a group project to demonstrate a fully functioning CRUD application using MVC principles and utilising linitng and continuous intergration. It was conceived from a simple idea to create a space for busy individuals to take a moment for themselves, and track their behaviour in a quick and effortless way as part of their daily mindfulness practice.
+Sanaya was developed by a team of three University of Birmingham Coding Bootcampt students, [Sandy Bassi](https://github.com/rubybassi), [Renato Pombal](https://github.com/Ard847) and [Sumaya Hassan](https://github.com/Sumaya198), as part of a group project to demonstrate a fully functioning CRUD application using MVC principles and utilising linting and continuous intergration. It was conceived from a simple idea to create a space for busy individuals to take a moment for themselves, and track their behaviour in a quick and effortless way as part of their daily mindfulness practice.
 
 ### User Story
 
@@ -33,7 +33,10 @@ Sanaya was developed by a team of three University of Birmingham Coding Bootcamp
 ![Sample Homepage](public/img/sanya-dashboard.png)
 
 #### Affirmation page
-![Sample Notes](public/img/sanya-dashboard.png)
+![Sample Notes](public/img/sanya-message.png)
+
+#### Snapshot Demo
+![Sanaya Mindfulness Application Demo](https://user-images.githubusercontent.com/25780327/105558953-d7b43d80-5d07-11eb-9821-6204fe976125.gif)
 
 ## Execute
 Clone the repo and in the command line run `npm install` or shortcut `npm i` to download all the npm package dependancies which include: Node Express, Nanoid, express-fileupload, express-handlebars, file-type, mysql2
