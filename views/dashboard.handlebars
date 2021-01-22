@@ -28,39 +28,41 @@ navbar-light bg-transparent">
                   </select>
                 </div>
               </div>
-              <div class="form-input">
-                <div class="form-group">
-                  <label class="form-label text-center" for="water">How many liters of water did you drink
-                    today?</label><br>
-                  <input type="number" class="form-control" id="water" placeholder="Water (liters)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="coffee">How many cups of coffee do you drink
-                    daily?</label><br>
-                  <input type="number" class="form-control" id="coffee" placeholder="Coffee (cups)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="calorie">What is you daily calorie intake?</label><br>
-                  <input type="number" class="form-control" id="calorie" placeholder="calories (kcal)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label text-center" for="alcohol">What is you daily Alcohol intake?</label><br>
-                  <input type="number" class="form-control" id="alcohol" placeholder="Alcohol (units)">
-                </div>
-                <div class="form-group">
-                  <label for="steps">Log in your daily steps</label>
-                  <input type="number" class="form-control" id="steps" placeholder="steps">
-                </div>
-                <div class="form-group">
-                  <label for="sleep">How many hours did you sleep last night?</label>
-                  <input type="number" class="form-control" id="sleep" placeholder="sleep (hours)">
-                </div>
-                <div class="form-group">
-                  <label for="exercise">How many minutes did you excercise today?</label>
-                  <input type="number" class="form-control" id="exercise" placeholder="excercise (minutes)">
-                </div>
-                <div class="mb-3">
-                  <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
+             
+                <div class="form-input">
+                  <div class="form-group">
+                    <label class="form-label text-center" for="water">How many liters of water did you drink
+                      today?</label><br>
+                    <input type="number" class="form-control" id="water" min="0" placeholder="Water (liters)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="coffee">How many cups of coffee do you drink
+                      daily?</label><br>
+                    <input type="number" class="form-control" id="coffee" min="0" placeholder="Coffee (cups)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="calorie">What is you daily calorie intake?</label><br>
+                    <input type="number" class="form-control" id="calorie" min="0" placeholder="calories (kcal)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label text-center" for="alcohol">What is you daily Alcohol intake?</label><br>
+                    <input type="number" class="form-control" id="alcohol" min="0" placeholder="Alcohol (units)">
+                  </div>
+                  <div class="form-group">
+                    <label for="steps">Log in your daily steps</label>
+                    <input type="number" class="form-control" id="steps" min="0" placeholder="steps">
+                  </div>
+                  <div class="form-group">
+                    <label for="sleep">How many hours did you sleep last night?</label>
+                    <input type="number" class="form-control" id="sleep" min="0" placeholder="sleep (hours)">
+                  </div>
+                  <div class="form-group">
+                    <label for="exercise">How many minutes did you excercise today?</label>
+                    <input type="number" class="form-control" id="exercise" min="0" placeholder="excercise (minutes)">
+                  </div>
+                  <div class="mb-3">
+                    <button type="submit" class="hh btn btn-primary" id="submitBtn">Submit</button>
+                  </div>
                 </div>
               </div>
             </form>
