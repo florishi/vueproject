@@ -2,8 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const fileUpload = require('express-fileupload')
-const FileType = require('file-type');
+const fileUpload = require('express-fileupload');
 
 require('dotenv').config();
 
@@ -14,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload())
+app.use(fileUpload());
 
 // set handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));

@@ -32,14 +32,13 @@ $('#loginBtn').on('click', (event) => {
     event.preventDefault();
   } else {
     event.preventDefault();
-    console.log("here")
     let userId;
     const data = {
       email: $('#email').val(),
       name: $('#name').val(),
       userId,
     };
-     $.ajax({
+    $.ajax({
       type: 'POST',
       url: '/login',
       data: JSON.stringify(data),
@@ -51,7 +50,7 @@ $('#loginBtn').on('click', (event) => {
       error: function (err) {
         console.log(`Error ${err}`);
       },
-    }); 
+    });
   }
 });
 
@@ -70,7 +69,7 @@ $('#submitBtn').on('click', (event) => {
   };
   const userId = localStorage.getItem('userId');
   console.log(`data values ${data}`);
-    $.ajax({
+  $.ajax({
     type: 'POST',
     url: `/dashboard/${userId}`,
     data: JSON.stringify(data),
@@ -84,55 +83,51 @@ $('#submitBtn').on('click', (event) => {
     error: function (err) {
       console.log(`Error ${err}`);
     },
-  }); 
+  });
 });
 
 
 
-if(document.getElementById('inpFile') != null){
-  const inpFile = document.getElementById('inpFile')
-  const previewContainer = document.getElementById('imagePreview')
+if(document.getElementById('inpFile') !== null){
+  const inpFile = document.getElementById('inpFile');
+  const previewContainer = document.getElementById('imagePreview');
   inpFile.addEventListener('change', function() {
-  const file = this.files[0];
+    const file = this.files[0];
+    if(file){
+      const reader = new FileReader();
+      const previewImage = previewContainer.querySelector('.image-preview__image');
+      const previewDefaultText = previewContainer.querySelector('.image-preview-text');
+      previewDefaultText.style.display = 'none';
+      previewImage.style.display = 'block';
 
-  if(file){
-    const reader = new FileReader()
-    const previewImage = previewContainer.querySelector('.image-preview__image')
-    const previewDefaultText = previewContainer.querySelector('.image-preview-text')
-
-    previewDefaultText.style.display = "none";
-    previewImage.style.display = "block";
-
-    reader.addEventListener("load", function() {
-      previewImage.setAttribute("src",this.result)
-    });
-
-    reader.readAsDataURL(file);
-  }else{
-    previewDefaultText.style.display = null;
-    previewImage.style.display = null;
-    previewImage.setAttribute("src","")
-
-  }
-});
-    const submit = document.querySelector("#submitImage")
-    submit.addEventListener("click", () => {
-    const inpFile = document.getElementById('inpFile')
+      reader.addEventListener('load', function() {
+        previewImage.setAttribute('src',this.result);
+      });
+      reader.readAsDataURL(file);
+    }else{
+      previewDefaultText.style.display = null;
+      previewImage.style.display = null;
+      previewImage.setAttribute('src','');
+    }
+  });
+  const submit = document.querySelector('#submitImage');
+  submit.addEventListener('click', () => {
+    const inpFile = document.getElementById('inpFile');
     const userId = localStorage.getItem('userId');
-    const file = inpFile.files[0]
+    const file = inpFile.files[0];
     const fd = new FormData();
-    fd.append('file',file)
+    fd.append('file',file);
     $.ajax({
       type: 'POST',
       url: `/dashboard/${userId}/message`,
       data:fd,
       contentType:false,
       processData:false,
-      success : function(response){
-        window.location = `/dashboard/${userId}/message`
+      success : function(){
+        window.location = `/dashboard/${userId}/message`;
       }
-    })
-  })  
+    });
+  });
 }
 
 // DELETE REQUEST FOR USER DATA
@@ -145,7 +140,7 @@ $('#deleteBtn').on('click', (event) => {
     contentType: 'application/json',
     success: function (response) {
       localStorage.removeItem('userId', response.userId);
-      window.location = `/`;
+      window.location = '/';
     },
     error: function (err) {
       console.log(`Error ${err}`);
