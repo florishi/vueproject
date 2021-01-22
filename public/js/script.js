@@ -58,45 +58,45 @@ $('#loginBtn').on('click', (event) => {
 // VALIDATION CHECK FOR DASHBOARD FORM
 
 const formValidation = () => {
-const mood = $('#mood option:selected').text();
-const water = $('#water').val();
-const steps = $('#steps').val();
-const sleep = $('#sleep').val();
-const exercise = $('#exercise').val();
-const calorie = $('#calorie').val();
-const alcohol = $('#alcohol').val();
-const coffee = $('#coffee').val();
+  const mood = $('#mood option:selected').text();
+  const water = $('#water').val();
+  const steps = $('#steps').val();
+  const sleep = $('#sleep').val();
+  const exercise = $('#exercise').val();
+  const calorie = $('#calorie').val();
+  const alcohol = $('#alcohol').val();
+  const coffee = $('#coffee').val();
   if (mood === '' || mood === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('hide');
   }
   if (water === '' || water === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
   if (steps === '' || steps === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
   if (sleep === '' || sleep === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
   if (exercise === '' || exercise === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
@@ -110,14 +110,14 @@ const coffee = $('#coffee').val();
   if (alcohol === '' || alcohol === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
-  if (coffee === '' || coffee === null) {
+  if(coffee === '' || coffee === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
+  }else {
     $('#errorForm').removeClass('show');
     $('#errorForm').addClass('hide');
   }
@@ -126,40 +126,38 @@ const coffee = $('#coffee').val();
 
 // USER DASHBOARD POST REQUEST
 $('#submitBtn').on('click', (event) => {
-  
   if (formValidation() === false) {
     event.preventDefault();
-     
-  } else {
-  event.preventDefault();
-  const data = {
-    mood: $('#mood option:selected').text(),
-    water: $('#water').val(),
-    steps: $('#steps').val(),
-    sleep: $('#sleep').val(),
-    exercise: $('#exercise').val(),
-    calorie: $('#calorie').val(),
-    alcohol: $('#alcohol').val(),
-    coffee: $('#coffee').val(),
-  };
-  const userId = localStorage.getItem('userId');
-  console.log(`data values ${data}`);
-  $.ajax({
-    type: 'POST',
-    url: `/dashboard/${userId}`,
-    data: JSON.stringify(data),
-    contentType: 'application/json',
-    success: function (response) {
-      console.log(`sent ${response}`);
-      if (response.redirect) {
-        window.location = response.redirect;
-      }
-    },
-    error: function (err) {
-      console.log(`Error ${err}`);
-    },
-  });
-}
+  }else{
+    event.preventDefault();
+    const data = {
+      mood: $('#mood option:selected').text(),
+      water: $('#water').val(),
+      steps: $('#steps').val(),
+      sleep: $('#sleep').val(),
+      exercise: $('#exercise').val(),
+      calorie: $('#calorie').val(),
+      alcohol: $('#alcohol').val(),
+      coffee: $('#coffee').val(),
+    };
+    const userId = localStorage.getItem('userId');
+    console.log(`data values ${data}`);
+    $.ajax({
+      type: 'POST',
+      url: `/dashboard/${userId}`,
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: function (response) {
+        console.log(`sent ${response}`);
+        if (response.redirect) {
+          window.location = response.redirect;
+        }
+      },
+      error: function (err) {
+        console.log(`Error ${err}`);
+      },
+    });
+  }
 });
 
 
