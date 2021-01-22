@@ -18,7 +18,7 @@ router.get('/:userId', (req, res) => {
 router.post('/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
-    const date =  setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+    const date =   new Date().toISOString().split('T')[0];
     const { mood, water, steps, sleep, exercise, calorie, alcohol, coffee } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date}`);
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
