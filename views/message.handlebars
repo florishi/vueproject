@@ -9,6 +9,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
+            <a class="nav-link selfieNav" href="#selfie-section">
+              Selfie Taker
+            </a>
+          <li class="nav-item">
             <a class="nav-link" href="history">
               View My Logs
             </a>
@@ -43,14 +47,33 @@
         <div class="col-md-6">
         </div>
       </div>
-      <!--<form action="http://localhost:3000/dashboard/{{getDataUser.sessionId}}/message" enctype="multipart/form-data" method="POST"> -->
-      <input type = "file" name = "inpFile" id = "inpFile">
-      <div class = "image-preview" id = "imagePreview">
-          <img src = "" alt = "image-preview" class = "image-preview__image">
-          <span class = "image-preview-text">Preview Image</span>
-          <button type = "submit" id= "submitImage">Upload photo</button>
-      </div>
-     <!-- </form>-->
+    
     </div>
   </div>
 </div>
+
+<section id="selfie-section">
+  <div class="container">
+    <div class="row">
+    
+  <h1 class="text-center selfie-title">Selfie Taker <span class="dot"></span></h1>
+    <p class="text-center">Take a selfie or pick a photo that represents your <br>
+      mood today and upload via the image uploader below.<br>
+      <div class="col-md-6">
+        
+        <!--<form action="http://localhost:3000/dashboard/{{getDataUser.sessionId}}/message" enctype="multipart/form-data" method="POST"> -->
+
+      <div class = "image-preview image-container" id = "imagePreview">
+          <img src = "" alt = "image-preview" class = "image-preview__image">
+          <input class="inputField" type = "file" name = "inpFile" id = "inpFile">
+          <label class="uploadBtn" for="inpFile">Choose photo</label>
+          <!--<span class = "image-preview-text">Preview Image</span>-->
+      </div>
+       <button class="btn uploadfileBTn"type = "submit" id= "submitImage">Upload photo</button>
+     <!-- </form>-->
+      </div>
+      
+    </div>
+  </div>
+  
+</section>

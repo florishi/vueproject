@@ -6,6 +6,8 @@ const orm = require('../config/orm');
 const mkdirp = require('mkdirp');
 const { nanoid } = require('nanoid');
 const fs = require('fs');
+const io = require('socket.io')
+ 
 
 // route to load dashboard form page
 router.get('/:userId', (req, res) => {
@@ -16,7 +18,7 @@ router.get('/:userId', (req, res) => {
 router.post('/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
-    const date = new Date().toDateString();
+    const date =  setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
     const { mood, water, steps, sleep, exercise, calorie, alcohol, coffee } = req.body;
     console.log(`mood: ${mood} water: ${water} steps: ${steps} sleep: ${sleep} exercise: ${exercise} date :${date}`);
     const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});

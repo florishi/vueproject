@@ -19,6 +19,9 @@
 
 .hide {
     display: none;
+}
+
+div#errorForm, div#errorName, div#errorEmail, div#errorEmail2  {
     color: red;
 }
 
@@ -247,4 +250,5 @@
     word-spacing: 2px;
     text-transform: capitalize;
 }
+
 
