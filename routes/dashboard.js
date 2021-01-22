@@ -53,10 +53,12 @@ router.post('/:userId/message/', async (req, res) => {
     const userId = req.params.userId;
     const name = req.files.file.name;
     const data = req.files.file.data;
+    const date = new Date().toISOString().split('T')[0];
     const photoName = `${nanoid()}${name}`;
     if(name && data){
       const user = await orm.Users.findOne({where:{sessionId:userId}, raw :true});
-      await userQuery.createImage(user.id,photoName,data);
+      console.log(user)
+      await userQuery.createImage(user.id,photoName,data,date);
       await mkdirp('public/selfies');
       res.json({name : photoName});
     }else{
@@ -209,6 +211,7 @@ router.get('/:userId/selfies', async (req,res) => {
     }
     );
   }
+  console.log(img)
   res.render('selfie',{layouts : 'logs',img});
 });
 

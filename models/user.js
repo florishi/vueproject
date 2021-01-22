@@ -13,8 +13,8 @@ const createHealth = (id,water,alchool,stepsIn,caloriesIn,date) =>{
   orm.Health.create({usersId:id,waterUnits:water,alchoolUnits:alchool,steps:stepsIn,calories:caloriesIn,inputDate:date});
 };
 
-const createImage = (id,name,data) =>{
-  orm.Image.create({usersId:id,imageName:name,image:data});
+const createImage = (id,name,data,date) =>{
+  orm.Image.create({usersId:id,imageName:name,image:data,inputDate:date});
 };
 
 module.exports = {
