@@ -2,7 +2,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-md 
 navbar-light bg-transparent">
-      <a href="#" class="navbar-brand logo">SANAYA <span class="dotlogo"></span></a>
+      <a href="/" class="navbar-brand logo">SANAYA <span class="dotlogo"></span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,7 @@ navbar-light bg-transparent">
 
 <div class="container historySection">
 <h1 class="logTitle text-center text-uppercase">Alcohol <span class="dot"></span></h1>
+<h2 class="text-uppercase">{{user.userName}}</h2>
 <table class="table">
   <thead>
     <tr>
@@ -40,6 +41,7 @@ navbar-light bg-transparent">
   </tbody>
    {{/each}}
 </table>
+
 </div>
 <h3>{{message}}</h3>
 </div>

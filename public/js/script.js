@@ -32,27 +32,26 @@ $('#loginBtn').on('click', (event) => {
     event.preventDefault();
   } else {
     event.preventDefault();
+    console.log("here")
     let userId;
     const data = {
       email: $('#email').val(),
       name: $('#name').val(),
       userId,
     };
-    console.log('data values', data);
-    $.ajax({
+     $.ajax({
       type: 'POST',
       url: '/login',
       data: JSON.stringify(data),
       contentType: 'application/json',
       success: function (response) {
-        console.log(`sent ${response}`);
         localStorage.setItem('userId', response.userId);
         window.location = `/dashboard/${response.userId}`;
       },
       error: function (err) {
         console.log(`Error ${err}`);
       },
-    });
+    }); 
   }
 });
 
@@ -71,7 +70,7 @@ $('#submitBtn').on('click', (event) => {
   };
   const userId = localStorage.getItem('userId');
   console.log(`data values ${data}`);
-  $.ajax({
+    $.ajax({
     type: 'POST',
     url: `/dashboard/${userId}`,
     data: JSON.stringify(data),
@@ -85,19 +84,21 @@ $('#submitBtn').on('click', (event) => {
     error: function (err) {
       console.log(`Error ${err}`);
     },
-  });
+  }); 
 });
 
-const inpFile = document.getElementById('inpFile')
-const previewContainer = document.getElementById('imagePreview')
-const previewImage = previewContainer.querySelector('.image-preview__image')
-const previewDefaultText = previewContainer.querySelector('.image-preview-text')
 
-inpFile.addEventListener('change', function() {
+
+if(document.getElementById('inpFile') != null){
+  const inpFile = document.getElementById('inpFile')
+  const previewContainer = document.getElementById('imagePreview')
+  inpFile.addEventListener('change', function() {
   const file = this.files[0];
 
   if(file){
     const reader = new FileReader()
+    const previewImage = previewContainer.querySelector('.image-preview__image')
+    const previewDefaultText = previewContainer.querySelector('.image-preview-text')
 
     previewDefaultText.style.display = "none";
     previewImage.style.display = "block";
@@ -113,9 +114,42 @@ inpFile.addEventListener('change', function() {
     previewImage.setAttribute("src","")
 
   }
+});
+    const submit = document.querySelector("#submitImage")
+    submit.addEventListener("click", () => {
+    const inpFile = document.getElementById('inpFile')
+    const userId = localStorage.getItem('userId');
+    const file = inpFile.files[0]
+    const fd = new FormData();
+    fd.append('file',file)
+    $.ajax({
+      type: 'POST',
+      url: `/dashboard/${userId}/message`,
+      data:fd,
+      contentType:false,
+      processData:false,
+      success : function(response){
+        window.location = `/dashboard/${userId}/message`
+      }
+    })
+  })  
+}
 
-  
-
-})
-  
+// DELETE REQUEST FOR USER DATA
+$('#deleteBtn').on('click', (event) => {
+  event.preventDefault();
+  const userId = localStorage.getItem('userId');
+  $.ajax({
+    type: 'DELETE',
+    url: `/dashboard/${userId}`,
+    contentType: 'application/json',
+    success: function (response) {
+      localStorage.removeItem('userId', response.userId);
+      window.location = `/`;
+    },
+    error: function (err) {
+      console.log(`Error ${err}`);
+    },
+  });
+});
 

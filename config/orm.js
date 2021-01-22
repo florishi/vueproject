@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize');
 const {connection,DataTypes} = require('./db');
 
 const Users = connection.define('User', {
@@ -37,7 +38,7 @@ const Image = connection.define('image',{
   id        :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
   usersId   :{type: DataTypes.INTEGER},
   imageName :{type: DataTypes.STRING(255)},
-  image      :{type: DataTypes.STRING(255)}
+  image      :{type: Sequelize.BLOB('long')}
 },{
   timestamps : false,
 });

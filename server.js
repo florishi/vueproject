@@ -3,6 +3,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const fileUpload = require('express-fileupload')
+const FileType = require('file-type');
+
 require('dotenv').config();
 
 // initiate
