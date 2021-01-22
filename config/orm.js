@@ -38,7 +38,8 @@ const Image = connection.define('image',{
   id        :{type: DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
   usersId   :{type: DataTypes.INTEGER},
   imageName :{type: DataTypes.STRING(255)},
-  image      :{type: Sequelize.BLOB('long')}
+  image     :{type: Sequelize.BLOB('long')},
+  inputDate :{type:DataTypes.STRING(50)}
 },{
   timestamps : false,
 });
