@@ -30,5 +30,9 @@ create table health(
     inputDate date
 );
 
-
-
+create table images(
+	id integer not null unique auto_increment,
+    usersID integer,
+    imageName varchar(255),
+    image LONGBLOB
+);
