@@ -26,6 +26,42 @@ const loginValidation = () => {
   return true;
 };
 
+const dashboardValidation = () => {
+  const mood = $('#mood option:selected').text(),
+  const name = $('#name').val();
+  const water= $('#water').val(),
+  const steps= $('#steps').val(),
+  const sleep= $('#sleep').val(),
+  const exercise= $('#exercise').val(),
+  const calorie= $('#calorie').val(),
+  const alcohol= $('#alcohol').val(),
+  const coffee= $('#coffee').val(),
+  if (mood === '' || mood === null) {
+    $('#errorName').removeClass('hide');
+    return false;
+  } else {
+    $('#errorName').removeClass('show');
+    $('#errorName').addClass('hide');
+  }
+  if (name === '' || name === null) {
+    $('#errorEmail').removeClass('hide');
+    return false;
+  } else {
+    $('#errorEmail').removeClass('show');
+    $('#errorEmail').addClass('hide');
+  }
+  if (!email.match(regexSimple)) {
+    $('#errorEmail2').removeClass('hide');
+    return false;
+  } else {
+    $('#errorEmail2').removeClass('show');
+    $('#errorEmail2').addClass('hide');
+  }
+  return true;
+};
+
+
+
 // POST LOGIN FORM DATA TO /login route
 $('#loginBtn').on('click', (event) => {
   if (loginValidation() === false) {
