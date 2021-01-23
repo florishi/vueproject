@@ -28,7 +28,10 @@ navbar-light bg-transparent">
          <h1 class="selfieLogTitle text-center">Selfie Taker <span class="dot"></span></h1>
          {{#each img}}
         <div class="selfie">
-    <img class="selfieImageSize" src ="/selfies/{{imageName}}" /> 
+            <tr>
+            <td><img class="selfieImageSize" src ="/selfies/{{imageName}}" /></td>
+             <td>{{inputDate}}</td>
+            </tr>
     </div>
 {{/each}}
     </div>
