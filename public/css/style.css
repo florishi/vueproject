@@ -243,3 +243,24 @@ footer{
     word-spacing: 2px;
     text-transform: capitalize;
 }
+
+.selfieImageSize{
+    width: 200px;
+    height: auto;
+    margin: 20px;
+}
+
+.historyBG{
+    background-image: url(../img/moodPebble-01.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.selfieLogTitle{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 60px;
+}
+.SText{
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.1rem;
+}
