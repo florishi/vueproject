@@ -199,7 +199,7 @@ if(document.getElementById('inpFile') !== null){
       contentType:false,
       processData:false,
       success : function(){
-        alert('Image upload was successful')
+        alert('Image upload was successful');
         window.location = `/dashboard/${userId}/history`;
       }
     });
