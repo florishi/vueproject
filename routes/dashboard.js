@@ -210,7 +210,7 @@ router.get('/:userId/selfies', async (req,res) => {
     }
     );
   }
-  res.render('selfie',{layouts : 'logs',img});
+  res.render('selfie',{layouts : 'logs', img});
 });
 
 module.exports = router;

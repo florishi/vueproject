@@ -199,7 +199,8 @@ if(document.getElementById('inpFile') !== null){
       contentType:false,
       processData:false,
       success : function(){
-        window.location = `/dashboard/${userId}/message`;
+        alert('Image upload was successful')
+        window.location = `/dashboard/${userId}/history`;
       }
     });
   });
