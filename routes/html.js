@@ -21,11 +21,6 @@ router.post('/login', async (req, res) => {
     let { name, email, userId } = req.body;
     userId = nanoid();
     let user = await orm.Users.findOne({where:{Email:email}, raw :true});
-    console.log('nanoid',userId);
-    console.log(`email is: ${email}`);
-    console.log(`name: ${name}`);
-    console.log(`local storage id:${userId}`);
-    // CREATE SEQUELIZE QUERY HERE TO SAVE NAME, EMAIL AND USERID TO DB
     if(user === null){
       await userQuery.createUsers(userId,email,name);
     }
