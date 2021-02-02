@@ -56,7 +56,6 @@ $('#loginBtn').on('click', (event) => {
 });
 
 // VALIDATION CHECK FOR DASHBOARD FORM
-
 const formValidation = () => {
   const mood = $('#mood option:selected').text();
   const water = $('#water').val();
@@ -69,57 +68,34 @@ const formValidation = () => {
   if (mood === '' || mood === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('hide');
   }
   if (water === '' || water === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if (steps === '' || steps === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if (sleep === '' || sleep === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if (exercise === '' || exercise === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if (calorie === '' || calorie === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  } else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if (alcohol === '' || alcohol === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   if(coffee === '' || coffee === null) {
     $('#errorForm').removeClass('hide');
     return false;
-  }else {
-    $('#errorForm').removeClass('show');
-    $('#errorForm').addClass('hide');
   }
   return true;
 };
@@ -199,8 +175,10 @@ if(document.getElementById('inpFile') !== null){
       contentType:false,
       processData:false,
       success : function(){
-        alert('Image upload was successful')
-        window.location = `/dashboard/${userId}/history`;
+        $('#alert').toggleClass('alert-hide alert-show');
+        setTimeout(function() {
+          window.location = `/dashboard/${userId}/history`;
+        }, 3000);
       }
     });
   });

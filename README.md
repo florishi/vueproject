@@ -5,7 +5,7 @@
 ## Description
 Sanaya is a fullstack CRUD application built with node.js, sequelize and express handlebars. 
 
-The application allows the user to login with thier email and name and navigate through the site, input their daily health and mood stats, recieve a random affirmation, upload and store images and view thier current and previous history log for each health and mood metric. It also allows the user to delete their records, both on the database and local storage.
+The application allows the user to login with their email and name, input their daily health and mood stats, recieve a random affirmation, upload and store images and view thier current and previous history log for each health and mood metric. It also allows the user to delete their records, both on the database and in local storage.
 
 Sanaya was developed by a team of three University of Birmingham Coding Bootcampt students, [Sandy Bassi](https://github.com/rubybassi), [Renato Pombal](https://github.com/Ard847) and [Sumaya Hassan](https://github.com/Sumaya198), as part of a group project to demonstrate a fully functioning CRUD application using MVC principles and utilising linting and continuous intergration. It was conceived from a simple idea to create a space for busy individuals to take a moment for themselves, and track their behaviour in a quick and effortless way as part of their daily mindfulness practice.
 
@@ -39,7 +39,7 @@ Sanaya was developed by a team of three University of Birmingham Coding Bootcamp
 ![Sanaya Mindfulness Application Demo](https://user-images.githubusercontent.com/25780327/105558953-d7b43d80-5d07-11eb-9821-6204fe976125.gif)
 
 ## Execute
-Clone the repo and in the command line run `npm install` or shortcut `npm i` to download all the npm package dependancies which include: Node Express, Nanoid, express-fileupload, express-handlebars, file-type, mysql2
+Clone the repo and in the command line run `npm install` or shortcut `npm i` to download all the npm package dependencies which include: Node Express, Nanoid, express-fileupload, express-handlebars, file-type, mysql2
 node-fetch and sequelize.
 
 Then invoke the application with command `node server.js` or by using the nodemon script `npm run dev`.
@@ -48,12 +48,13 @@ Then invoke the application with command `node server.js` or by using the nodemo
 Contributions are welcomed.
 
 ## Test
-The project follows a continuous intergration: from planning using agile methodology and wireframing, team collaboration on the build with git and github, testing with esLint and Travis CI, finally to deplayment on Heroku, then iterating back to planning on so on.
+The project follows a continuous intergration: from planning using agile methodology and wireframing, team collaboration on the build with git and github, testing with esLint and Travis CI, finally to deployment on Heroku, then iterating back to planning on so on.
 
 ## Future Development
 * Implement user Authentication with middleware such as Passport, Google Auth Node or similar.
 * Incorporate a blog system allowing users to search and save articles by topics and themes. 
 * Add additional features such as a favourites button for saving affirmations, a meditation sound timer and displaying daily stats against recommended metrics to show if met or not.
+* Allow the user to update the current day's logs.
 
 ## License
 MIT
